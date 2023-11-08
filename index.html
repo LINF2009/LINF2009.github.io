@@ -73,6 +73,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-markdown语法及网络的配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2023-11-08T12:18:51.000Z" itemprop="datePublished">2023-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/">markdown语法及网络的配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h3 id="标题的大小"><a href="#标题的大小" class="headerlink" title="标题的大小"></a>标题的大小</h3><p>在Markdown语法中标题有6种大小并以#号作为区分，如： 一级标题就只有一个#，二级标题就有两个#号以此类推</p>
+<h3 id="字体型号"><a href="#字体型号" class="headerlink" title="字体型号"></a>字体型号</h3><p>Markdown语法以字的左右两边的*号或_符号进行区分，其中两边各有一个为斜体——<em>斜体</em>，两边各有两个为粗体——<strong>粗体</strong> ，两边各有三个为粗斜体——<em><strong>粗斜体</strong></em> 。</p>
+<h3 id="分格线"><a href="#分格线" class="headerlink" title="分格线"></a>分格线</h3><p>可以用三个或以上的***或___或在其中添加空格实现分格线。</p>
+<hr>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>在文字两边各两个~~号生成删除线，<del>删除线</del>。</p>
+<h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><p>可使用HTML的&lt;u&gt;标签实现下划线，<u>下划线</u></p>
+<h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><p>脚注使用[^github]打出，<a href="%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E7%9A%84%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0%E3%80%82">^github</a></p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>Markdown 支持有序列表和无序列表。</p>
+<p>无序列表使用星号(<em>****)、加号(<strong>+</strong>)或是减号(</em>*-**)作为列表标记，这些标记后面要添加一个空格，然后再填写内容： </p>
+<ul>
+<li>一</li>
+<li>二</li>
+</ul>
+<p>有序列表使用数字并加上 <strong>.</strong> 号来表示，如： </p>
+<ol>
+<li>F</li>
+<li>S</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/" data-id="cloprrczw0003s8v15a8l1g4x" data-title="markdown语法及网络的配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2023-11-7-配置虚拟机和使用GitHub写博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/" class="article-date">
@@ -102,7 +158,7 @@
 <ol start="3">
 <li>再进行ssh密钥的配置，使用语句cd ~&#x2F;.ssh用于检查本机是否有ssh密钥（如果提示：No such file or directory 说明你是第一次使用git）。</li>
 <li>使用语句’ssh-keygen -t rsa -C “邮件地址”’，然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：写一个ssh密钥的标题，再将“C: \Users\当前用户名.ssh\id_rsa.pub”中的内容复制到key中。</li>
-<li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li>
+<li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#109;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name “xxx”// 你的github用户名，非昵称</span><br><span class="line">git config –global user.email “xxx@qq.com“// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
 
@@ -146,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/" data-id="clophhspf00010sv1bllt7ftx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/" data-id="cloprrcze0000s8v1ht1b2qul" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -184,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/07/x/" data-id="clophhsqf00020sv11z311paq" data-title="x" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/07/x/" data-id="cloprrczt0001s8v166cq2m19" data-title="x" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -235,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/07/hello-world/" data-id="clophhsok00000sv12rtf3tpk" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/07/hello-world/" data-id="cloprrczv0002s8v11fmpah45" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -276,6 +332,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/">markdown语法及网络的配置</a>
+          </li>
         
           <li>
             <a href="/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/">(no title)</a>
