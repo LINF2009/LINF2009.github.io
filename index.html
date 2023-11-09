@@ -143,20 +143,20 @@
 </tr>
 </tbody></table>
 <h3 id="PicGo的使用"><a href="#PicGo的使用" class="headerlink" title="PicGo的使用"></a>PicGo的使用</h3><p>配置PicGo</p>
-<p>![QQ截图20231109093120](C:\Users\pc\Pictures\Saved Pictures\QQ截图20231109093120.png)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgQQ%E6%88%AA%E5%9B%BE20231109093120.png" alt="QQ截图20231109093120"></p>
 <p>其中图床配置名可以自由设置，设定仓库名必须配置“GitHub用户名\自己创建的库的名字”，设定分支名基本为main，设定Token需要打开github中的Settings，找到</p>
-<p><img src="D:\文件下载\screenshot20231109.png" alt="screenshot20231109"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgscreenshot20231109.png" alt="screenshot20231109"></p>
 <p>按如下操作： </p>
-<p>![screenshot20231109 (3)](D:\文件下载\screenshot20231109 (3).png)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgscreenshot20231109%20(3).png" alt="screenshot20231109 (3)"></p>
 <p>再选择无限时间，勾选repo。</p>
-<p>![screenshot20231109 (5)](D:\文件下载\screenshot20231109 (5).png)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgscreenshot20231109%20(5).png" alt="screenshot20231109 (5)"></p>
 <hr>
 <p>设定自定义域名格式（cdn）： <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/%E4%BD%A0%E7%9A%84github%E7%94%A8%E6%88%B7%E5%90%8D/%E4%BD%A0%E7%9A%84%E4%BB%93%E5%BA%93%E5%90%8D@%E5%88%86%E6%94%AF%EF%BC%88%E4%B8%80%E8%88%AC%E4%B8%BAmain%EF%BC%89/">https://cdn.jsdelivr.net/gh/你的github用户名/你的仓库名@分支（一般为main）/</a></p>
 <h1 id="网络的配置"><a href="#网络的配置" class="headerlink" title="网络的配置"></a>网络的配置</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/" data-id="cloqk0yoy0003vsv1agk6bjln" data-title="markdown语法及网络的配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/" data-id="cloqo9hvs0005kcv151fvcwlt" data-title="markdown语法及网络的配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -203,7 +203,7 @@
 <ol start="3">
 <li>再进行ssh密钥的配置，使用语句cd ~&#x2F;.ssh用于检查本机是否有ssh密钥（如果提示：No such file or directory 说明你是第一次使用git）。</li>
 <li>使用语句’ssh-keygen -t rsa -C “邮件地址”’，然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：写一个ssh密钥的标题，再将“C: \Users\当前用户名.ssh\id_rsa.pub”中的内容复制到key中。</li>
-<li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#x6f;&#109;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li>
+<li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name “xxx”// 你的github用户名，非昵称</span><br><span class="line">git config –global user.email “xxx@qq.com“// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
 
@@ -247,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/" data-id="cloqk0yoo0000vsv19ls01r22" data-title="配置虚拟机和使用GitHub写博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/" data-id="cloqo9hvj0000kcv163wu73sx" data-title="配置虚拟机和使用GitHub写博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -287,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/07/x/" data-id="cloqk0yp40005vsv1cj1i7x46" data-title="x" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/07/x/" data-id="cloqo9hvs0004kcv11kt2hb74" data-title="x" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -338,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/07/hello-world/" data-id="cloqk0you0001vsv174hth6m2" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/07/hello-world/" data-id="cloqo9hvo0001kcv103lddr4x" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
