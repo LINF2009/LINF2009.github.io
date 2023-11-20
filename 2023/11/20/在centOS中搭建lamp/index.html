@@ -16,22 +16,25 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="配置虚拟机先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机（Win10_1903_V2_Chinese(Simplified)_x64.iso） 配置在VMware中。启动虚拟机看是否成功安装。   使用GitHub写博客下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建：   在本">
+    <meta name="description" content="1.安装centOS镜像 寻找centOS系统，这里安装*CentOS-7-x86_64-Minimal-2009.iso*版本  下载号centOS镜像后新建centOS虚拟机，完成centOS的启动后进入登录页面  然后开始搭建lamp。 2.rm -f &#x2F;var&#x2F;run&#x2F;yum.pid     清理睡眠状态 123456789101112131415161718">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置虚拟机和使用GitHub写博客">
-<meta property="og:url" content="http://example.com/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="在centOS搭建lamp">
+<meta property="og:url" content="http://example.com/2023/11/20/%E5%9C%A8centOS%E4%B8%AD%E6%90%AD%E5%BB%BAlamp/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="配置虚拟机先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机（Win10_1903_V2_Chinese(Simplified)_x64.iso） 配置在VMware中。启动虚拟机看是否成功安装。   使用GitHub写博客下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建：   在本">
+<meta property="og:description" content="1.安装centOS镜像 寻找centOS系统，这里安装*CentOS-7-x86_64-Minimal-2009.iso*版本  下载号centOS镜像后新建centOS虚拟机，完成centOS的启动后进入登录页面  然后开始搭建lamp。 2.rm -f &#x2F;var&#x2F;run&#x2F;yum.pid     清理睡眠状态 123456789101112131415161718">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-07T11:53:40.000Z">
-<meta property="article:modified_time" content="2023-11-09T12:05:09.612Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgcentOS.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imglogin.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgsql%E8%BF%9E%E6%8E%A5.png">
+<meta property="article:published_time" content="2023-11-20T11:05:13.000Z">
+<meta property="article:modified_time" content="2023-11-20T12:03:23.753Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgcentOS.png">
   
   
   
-  <title>配置虚拟机和使用GitHub写博客 - Hexo</title>
+  <title>在centOS搭建lamp - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="配置虚拟机和使用GitHub写博客"></span>
+            <span id="subtitle" data-typed-text="在centOS搭建lamp"></span>
           
         </div>
 
@@ -208,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-07 19:53" pubdate>
-          2023年11月7日 晚上
+        <time datetime="2023-11-20 19:05" pubdate>
+          2023年11月20日 晚上
         </time>
       </span>
     
@@ -220,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          2.9k 字
         
       </span>
     
@@ -231,7 +234,7 @@
         
         
         
-          11 分钟
+          25 分钟
         
       </span>
     
@@ -268,36 +271,53 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">配置虚拟机和使用GitHub写博客</h1>
+            <h1 id="seo-header">在centOS搭建lamp</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="配置虚拟机"><a href="#配置虚拟机" class="headerlink" title="配置虚拟机"></a>配置虚拟机</h3><p>先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机<u>（Win10_1903_V2_Chinese(Simplified)_x64.iso）</u></p>
-<p>配置在VMware中。启动虚拟机看是否成功安装。  </p>
-<h3 id="使用GitHub写博客"><a href="#使用GitHub写博客" class="headerlink" title="使用GitHub写博客"></a>使用GitHub写博客</h3><p>下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建： </p>
-<ol>
-<li>在本地找个目录放博客源文件，路径不要有中文。</li>
-<li>在选定的目录中，右键Git Bash Here，使用npm命令安装Hexo，输入：</li>
-</ol>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">npm <span class="hljs-keyword">install </span>-g hexo-cli <br>hexo init <span class="hljs-keyword">blog </span><br>cd <span class="hljs-keyword">blog </span><br>hexo g <br></code></pre></td></tr></table></figure>
+                <p>1.安装<em>centOS</em>镜像</p>
+<p>寻找centOS系统，这里安装*<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso">CentOS-7-x86_64-Minimal-2009.iso</a>*版本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgcentOS.png" srcset="/img/loading.gif" lazyload alt="centOS"></p>
+<p>下载号centOS镜像后新建centOS虚拟机，完成centOS的启动后进入登录页面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imglogin.png" srcset="/img/loading.gif" lazyload alt="login"></p>
+<p>然后开始搭建lamp。</p>
+<p>2.rm -f &#x2F;var&#x2F;run&#x2F;yum.pid     清理睡眠状态</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs routeros">rm -f /var/run/yum.pid<br>firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=3306/tcp<br>firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=3306/udp<br>firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=80/tcp<br>firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=80/udp<br>firewall-cmd --reload<br>vi /etc/selinux<span class="hljs-built_in">/config </span>     #将<span class="hljs-attribute">SELINUX</span>=enforcing这一行修改为SELINUX=disabled<br>reboot<br>yum <span class="hljs-built_in">remove</span> mariadb-libs.x86_64<br>yum install httpd -y<br>systemctl <span class="hljs-built_in">enable</span> httpd<br>systemctl restart httpd<br>systemctl status httpd<br>yum -y install mariadb mariadb-server<br>systemctl <span class="hljs-built_in">enable</span> mariadb<br>systemctl start mariadb<br>mysql_secure_installation<br><br><br></code></pre></td></tr></table></figure>
 
-<p>创建博客。</p>
-<ol start="3">
-<li>再进行ssh密钥的配置，使用语句cd ~&#x2F;.ssh用于检查本机是否有ssh密钥（如果提示：No such file or directory 说明你是第一次使用git）。</li>
-<li>使用语句’ssh-keygen -t rsa -C “邮件地址”’，然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：写一个ssh密钥的标题，再将“C: \Users\当前用户名.ssh\id_rsa.pub”中的内容复制到key中。</li>
-<li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li>
-</ol>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> –<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> “xxx”<span class="hljs-comment">// 你的github用户名，非昵称</span><br>git <span class="hljs-keyword">config</span> –<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> “xxx@qq<span class="hljs-variable">.com</span>“<span class="hljs-comment">// 填写你的github注册邮箱</span><br></code></pre></td></tr></table></figure>
+<p>3.开放防火墙</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros">firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=3306/tcp<br>firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=3306/udp<br>firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=80/tcp<br>firewall-cmd --permanent <span class="hljs-attribute">--zone</span>=public <span class="hljs-attribute">--add-port</span>=80/udp<br>firewall-cmd --reload<br></code></pre></td></tr></table></figure>
 
-<ol start="6">
-<li>在GitHub上建立一个存储库，命名为github的用户名.github.io（必须与自己github注册用户名一致，因为Github 仅能使用一个同名仓库的代码托管一个静态站点），编辑_config.yml文件，在最后改成这样</li>
-</ol>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span> <br><span class="hljs-symbol">	type:</span> git<br><span class="hljs-symbol">	repository:</span> git@github.com:xxx/xxx.github.io.git<br><span class="hljs-symbol">	branch:</span> main<br></code></pre></td></tr></table></figure>
+<p>4.关闭selinux</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">vi /etc/selinux<span class="hljs-built_in">/config </span> <br>将<span class="hljs-attribute">SELINUX</span>=enforcing这一行修改为SELINUX=disabled<br></code></pre></td></tr></table></figure>
 
+<p>让后重启<em>centOS-7</em>（reboot）。</p>
+<p>5.删除默认数据库</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">rpm -<span class="hljs-keyword">qa</span> | <span class="hljs-keyword">grep</span> mariadb 查找出默认数据库mariadb的包名。<br>yum <span class="hljs-built_in">remove</span> mariadb-libs.x86_64    删除<br></code></pre></td></tr></table></figure>
 
+<p>6.开启apache服务</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nsis">yum install httpd -y<br><span class="hljs-params">system</span>ctl enable httpd<br><span class="hljs-params">system</span>ctl restart httpd<br><span class="hljs-params">system</span>ctl status httpd           //查看服务状态<br>此时访问成功回显apache测试页，网站根目录/<span class="hljs-keyword">var</span>/www/html<br></code></pre></td></tr></table></figure>
 
-<p>最后上传。</p>
+<p>7.安装mysql</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">yum -y install mariadb mariadb-<span class="hljs-keyword">server</span><br>systemctl <span class="hljs-keyword">enable</span> mariadb<br>systemctl <span class="hljs-keyword">start</span> mariadb<br>mysql_secure_installation<br></code></pre></td></tr></table></figure>
+
+<p>8.mysql设置</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">8.</span> Enter <span class="hljs-keyword">current</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">for</span> root (enter <span class="hljs-keyword">for</span> <span class="hljs-keyword">none</span>):&lt;–初次运行直接回车<span class="hljs-keyword">Set</span> root <span class="hljs-keyword">password</span>? [Y/n]&lt;– 是否设置root用户密码，输入y并回车或直接回车<br><span class="hljs-built_in">New</span> <span class="hljs-keyword">password</span>:&lt;– 设置root用户的密码<br>Re-enter <span class="hljs-built_in">new</span> <span class="hljs-keyword">password</span>:&lt;– 再输入一次你设置的密码<br>其他配置<br>Remove anonymous users? [Y/n]&lt;– 是否删除匿名用户，回车<br>Disallow root <span class="hljs-keyword">login</span> remotely? [Y/n]&lt;–是否禁止root远程登录,回车,<br>Remove test <span class="hljs-keyword">database</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">access</span> <span class="hljs-keyword">to</span> it? [Y/n]&lt;– 是否删除test数据库，回车<br>Reload privilege <span class="hljs-keyword">tables</span> now? [Y/n]&lt;– 是否重新加载权限表，回车<br>初始化MariaDB完成，接下来测试登录<br>mysql -uroot -p你的密码<br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> IDENTIFIED <span class="hljs-keyword">BY</span> <span class="hljs-string">&#x27;你的密码的明文&#x27;</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;      <br>FLUSH <span class="hljs-keyword">PRIVILEGES</span>;                  远程登陆<br></code></pre></td></tr></table></figure>
+
+<p>完成。</p>
+<p>9.php安装</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs smali">  a. rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm <br>  b. yum -y remove php*<br>  c. yum -y install php72w php72w-cli php72w-fpm php72w-common php72w-devel php72w-embedded php72w-gd php72w-mbstring php72w-mysqlnd php72w-opcache php72w-pdo php72w-xml<br>  d.<span class="hljs-keyword"> system</span>ctl enable php-fpm.service <span class="hljs-keyword"></span><br><span class="hljs-keyword">system</span>ctl start php-fpm.service<br></code></pre></td></tr></table></figure>
+
+<p>10.<strong>配置Apache解析php文件并自动关联</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">a</span>. vi /etc/httpd/conf/httpd<span class="hljs-selector-class">.conf</span><br><span class="hljs-selector-tag">b</span>. 找到：DirectoryIndex index.html改为：DirectoryIndex index<span class="hljs-selector-class">.html</span> index<span class="hljs-selector-class">.htm</span> index<span class="hljs-selector-class">.php</span><br>c. 找到：AddType application/x-gzip <span class="hljs-selector-class">.gz</span> .tgz在该行下面添加：AddType application/x-httpd-php <span class="hljs-selector-class">.php</span><br>d. 重启Apache：systemctl restart httpd<br>e. 在浏览器输入服务器IP地址或者绑定的域名访问即可，html文件下是网站主目录，如果是里面有个文件夹才是主目录可以在配置文件修改主目录路径，或者在IP地址访问后面加上文件夹名字。<br></code></pre></td></tr></table></figure>
+
+<p>11.建立数据库连接</p>
+<p>将之前创建网页的文件进行压缩<code>zip WWW</code>，再将zip文件传入centOS中<code>scp -r .\WWW.zip root@centOSip地址:\var\www\html\</code>，使用<code>unzip  WWW.zip</code>解压，现在就可以输入centOS的IP地址登入index.php，但是还未连接数据库所以还没办法进行登录操作。</p>
+<p>设置对应的参数，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgsql%E8%BF%9E%E6%8E%A5.png" srcset="/img/loading.gif" lazyload alt="sql连接"></p>
+<p>主机必须为centOS的IP地址，密码必须为centOS的登录密码。</p>
+<p>再将之前网页的数据库复制井新数据库就可以实现之前网页的功能了。</p>
+<p><em>注意：</em>前后两个数据库的名字需要相同，否则须<code>vim /var/www/html/link.php</code>中更改所查询的表的名字。</p>
 
                 
               </div>
@@ -307,13 +327,6 @@
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
-      
-    </div>
-  
 </div>
 
 
@@ -322,8 +335,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>配置虚拟机和使用GitHub写博客</div>
-      <div>http://example.com/2023/11/07/2023-11-7-配置虚拟机和使用GitHub写博客/</div>
+      <div>在centOS搭建lamp</div>
+      <div>http://example.com/2023/11/20/在centOS中搭建lamp/</div>
     </div>
     <div class="license-meta">
       
@@ -335,7 +348,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月7日</div>
+          <div>2023年11月20日</div>
         </div>
       
       
@@ -367,15 +380,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/" title="markdown语法及网络的配置">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">markdown语法及网络的配置</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/11/16/Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%92%8C%E6%8C%87%E4%BB%A4/" title="Linux文件操作和指令">
+                        <span class="hidden-mobile">Linux文件操作和指令</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
