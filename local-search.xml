@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>web前端开发介绍</title>
+    <link href="/2023/11/27/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%BB%8B%E7%BB%8D/"/>
+    <url>/2023/11/27/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%BB%8B%E7%BB%8D/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>永恒之黑实现蓝屏</title>
     <link href="/2023/11/27/%E6%B0%B8%E6%81%92%E4%B9%8B%E9%BB%91%E5%AE%9E%E7%8E%B0%E8%93%9D%E5%B1%8F/"/>
     <url>/2023/11/27/%E6%B0%B8%E6%81%92%E4%B9%8B%E9%BB%91%E5%AE%9E%E7%8E%B0%E8%93%9D%E5%B1%8F/</url>
@@ -114,6 +127,12 @@
     
     
     
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -188,7 +207,7 @@
     <link href="/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
     <url>/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/</url>
     
-    <content type="html"><![CDATA[<h3 id="配置虚拟机"><a href="#配置虚拟机" class="headerlink" title="配置虚拟机"></a>配置虚拟机</h3><p>先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机<u>（Win10_1903_V2_Chinese(Simplified)_x64.iso）</u></p><p>配置在VMware中。启动虚拟机看是否成功安装。  </p><h3 id="使用GitHub写博客"><a href="#使用GitHub写博客" class="headerlink" title="使用GitHub写博客"></a>使用GitHub写博客</h3><p>下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建： </p><ol><li>在本地找个目录放博客源文件，路径不要有中文。</li><li>在选定的目录中，右键Git Bash Here，使用npm命令安装Hexo，输入：</li></ol><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">npm <span class="hljs-keyword">install </span>-g hexo-cli <br>hexo init <span class="hljs-keyword">blog </span><br>cd <span class="hljs-keyword">blog </span><br>hexo g <br></code></pre></td></tr></table></figure><p>创建博客。</p><ol start="3"><li>再进行ssh密钥的配置，使用语句cd ~&#x2F;.ssh用于检查本机是否有ssh密钥（如果提示：No such file or directory 说明你是第一次使用git）。</li><li>使用语句’ssh-keygen -t rsa -C “邮件地址”’，然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：写一个ssh密钥的标题，再将“C: \Users\当前用户名.ssh\id_rsa.pub”中的内容复制到key中。</li><li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li></ol><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> –<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> “xxx”<span class="hljs-comment">// 你的github用户名，非昵称</span><br>git <span class="hljs-keyword">config</span> –<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> “xxx@qq<span class="hljs-variable">.com</span>“<span class="hljs-comment">// 填写你的github注册邮箱</span><br></code></pre></td></tr></table></figure><ol start="6"><li>在GitHub上建立一个存储库，命名为github的用户名.github.io（必须与自己github注册用户名一致，因为Github 仅能使用一个同名仓库的代码托管一个静态站点），编辑_config.yml文件，在最后改成这样</li></ol><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span> <br><span class="hljs-symbol">type:</span> git<br><span class="hljs-symbol">repository:</span> git@github.com:xxx/xxx.github.io.git<br><span class="hljs-symbol">branch:</span> main<br></code></pre></td></tr></table></figure><p>最后上传。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="配置虚拟机"><a href="#配置虚拟机" class="headerlink" title="配置虚拟机"></a>配置虚拟机</h3><p>先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机<u>（Win10_1903_V2_Chinese(Simplified)_x64.iso）</u></p><p>配置在VMware中。启动虚拟机看是否成功安装。  </p><h3 id="使用GitHub写博客"><a href="#使用GitHub写博客" class="headerlink" title="使用GitHub写博客"></a>使用GitHub写博客</h3><p>下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建： </p><ol><li>在本地找个目录放博客源文件，路径不要有中文。</li><li>在选定的目录中，右键Git Bash Here，使用npm命令安装Hexo，输入：</li></ol><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">npm <span class="hljs-keyword">install </span>-g hexo-cli <br>hexo init <span class="hljs-keyword">blog </span><br>cd <span class="hljs-keyword">blog </span><br>hexo g <br></code></pre></td></tr></table></figure><p>创建博客。</p><ol start="3"><li>再进行ssh密钥的配置，使用语句cd ~&#x2F;.ssh用于检查本机是否有ssh密钥（如果提示：No such file or directory 说明你是第一次使用git）。</li><li>使用语句’ssh-keygen -t rsa -C “邮件地址”’，然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：写一个ssh密钥的标题，再将“C: \Users\当前用户名.ssh\id_rsa.pub”中的内容复制到key中。</li><li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li></ol><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> –<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> “xxx”<span class="hljs-comment">// 你的github用户名，非昵称</span><br>git <span class="hljs-keyword">config</span> –<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> “xxx@qq<span class="hljs-variable">.com</span>“<span class="hljs-comment">// 填写你的github注册邮箱</span><br></code></pre></td></tr></table></figure><ol start="6"><li>在GitHub上建立一个存储库，命名为github的用户名.github.io（必须与自己github注册用户名一致，因为Github 仅能使用一个同名仓库的代码托管一个静态站点），编辑_config.yml文件，在最后改成这样</li></ol><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span> <br><span class="hljs-symbol">type:</span> git<br><span class="hljs-symbol">repository:</span> git@github.com:xxx/xxx.github.io.git<br><span class="hljs-symbol">branch:</span> main<br></code></pre></td></tr></table></figure><p>最后上传。</p>]]></content>
     
     
     
