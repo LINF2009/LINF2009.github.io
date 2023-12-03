@@ -40,8 +40,16 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgfloat()%E8%BD%AC%E6%8D%A2.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgint%E8%BD%AC%E6%8D%A2%E6%88%90float%E7%B1%BB%E5%9E%8B.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BAstring%E7%B1%BB%E5%9E%8B.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool%E7%B1%BB%E5%9E%8B%E9%9D%9E%E9%9B%B6%E8%BD%AC%E6%8D%A2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%B4%9F%E6%95%B0%E8%BD%AC%E6%8D%A2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E9%9B%B6%E8%BD%AC%E6%8D%A2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%B4%9F%E9%9B%B6%E8%BD%AC%E6%8D%A2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%BD%AC%E6%8D%A2%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E5%88%97%E8%A1%A8%E6%9C%89%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E5%88%97%E8%A1%A8%E6%9C%89%E6%95%B0%E6%8D%AE.png">
 <meta property="article:published_time" content="2023-12-01T01:50:29.000Z">
-<meta property="article:modified_time" content="2023-12-03T03:30:07.670Z">
+<meta property="article:modified_time" content="2023-12-03T07:00:01.566Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k 字
+          5.6k 字
         
       </span>
     
@@ -249,7 +257,7 @@
         
         
         
-          46 分钟
+          47 分钟
         
       </span>
     
@@ -542,6 +550,24 @@
 </li>
 <li><p>使用str()转换时必须写<em>str</em>而不能写<em>string</em>，转换Boolean类型时，如：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BAstring%E7%B1%BB%E5%9E%8B.png" srcset="/img/loading.gif" lazyload alt="bool类型转换为string类型"></p>
+<p>可以看出打印的值是True而不是1。</p>
+</li>
+<li><p>1.<strong>使用bool()转换时对于整型1和2等等非零整数都转换为True：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool%E7%B1%BB%E5%9E%8B%E9%9D%9E%E9%9B%B6%E8%BD%AC%E6%8D%A2.png" srcset="/img/loading.gif" lazyload alt="bool类型非零转换"></p>
+<p>2.<strong>负数同样也是Ture：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%B4%9F%E6%95%B0%E8%BD%AC%E6%8D%A2.png" srcset="/img/loading.gif" lazyload alt="bool()负数转换"></p>
+<p>3.<strong>0为False：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E9%9B%B6%E8%BD%AC%E6%8D%A2.png" srcset="/img/loading.gif" lazyload alt="bool()零转换"></p>
+<p>4.<strong>-0也为False：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%B4%9F%E9%9B%B6%E8%BD%AC%E6%8D%A2.png" srcset="/img/loading.gif" lazyload alt="bool()负零转换"></p>
+<p>5.<strong>浮点数类型和整型转化为bool类型的情况相同</strong></p>
+<p>6.<strong>只要字符串中有内容，在强制类型转换为bool时其值都为True：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%BD%AC%E6%8D%A2%E6%9C%89%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2.png" srcset="/img/loading.gif" lazyload alt="bool()转换有字符的字符串"></p>
+<p>7.<strong>当字符串中没有字符则显示False：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E8%BD%AC%E6%8D%A2%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2.png" srcset="/img/loading.gif" lazyload alt="bool()转换空字符串"></p>
+<p>8.<strong>如果列表、元组、字典中有数据，强制类型转换为bool时则显示为True。没有数据就会显示为False：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E5%88%97%E8%A1%A8%E6%9C%89%E6%95%B0%E6%8D%AE.png" srcset="/img/loading.gif" lazyload alt="bool()列表有数据"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgbool()%E5%88%97%E8%A1%A8%E6%9C%89%E6%95%B0%E6%8D%AE.png" srcset="/img/loading.gif" lazyload alt="bool()列表有数据"></p>
 </li>
 </ul>
 
@@ -612,6 +638,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/12/03/python%E5%9F%BA%E7%A1%80-3-python%E8%BF%90%E7%AE%97%E7%AC%A6/" title="python基础-3(python运算符和输入输出)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python基础-3(python运算符和输入输出)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
