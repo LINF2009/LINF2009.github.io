@@ -16,22 +16,33 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="配置虚拟机先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机（Win10_1903_V2_Chinese(Simplified)_x64.iso） 配置在VMware中。启动虚拟机看是否成功安装。   使用GitHub写博客下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建：   在本">
+    <meta name="description" content="字符串的常用方法len()len时length（长度）的缩写，其作用是获取字符串的长度 12s &#x3D; &quot;china&quot;print(len(s))  &#x2F;&#x2F;输出s的长度，结果为5  find（）查找指定内容在字符串中是否存在，如果存在则返回第一次出现该内容的位置的索引值，否则就返回-1。 语法： 1字符串名.find(&#x27;查找内容&#x27;)     注意：find（）只返回">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置虚拟机和使用GitHub写博客">
-<meta property="og:url" content="http://example.com/2023/11/07/2023-11-7-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BD%BF%E7%94%A8GitHub%E5%86%99%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="python基础-5(各个数据类型的常用方法)">
+<meta property="og:url" content="http://example.com/2023/12/04/python%E5%9F%BA%E7%A1%80-5-%E5%90%84%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="配置虚拟机先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机（Win10_1903_V2_Chinese(Simplified)_x64.iso） 配置在VMware中。启动虚拟机看是否成功安装。   使用GitHub写博客下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建：   在本">
+<meta property="og:description" content="字符串的常用方法len()len时length（长度）的缩写，其作用是获取字符串的长度 12s &#x3D; &quot;china&quot;print(len(s))  &#x2F;&#x2F;输出s的长度，结果为5  find（）查找指定内容在字符串中是否存在，如果存在则返回第一次出现该内容的位置的索引值，否则就返回-1。 语法： 1字符串名.find(&#x27;查找内容&#x27;)     注意：find（）只返回">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-07T11:53:40.000Z">
-<meta property="article:modified_time" content="2023-12-01T08:55:32.849Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgfind%EF%BC%88%EF%BC%89%E7%9A%84%E4%BD%BF%E7%94%A8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgstartswith%EF%BC%88%EF%BC%89%E5%92%8Cendswith%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgcount%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreplace%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgspilt%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgupper%EF%BC%88%EF%BC%89%E5%92%8Clower%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgjoin%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgappend%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imginsert%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgextend%EF%BC%88%EF%BC%89.png">
+<meta property="article:published_time" content="2023-12-04T12:09:10.000Z">
+<meta property="article:modified_time" content="2023-12-04T13:37:04.863Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgfind%EF%BC%88%EF%BC%89%E7%9A%84%E4%BD%BF%E7%94%A8.png">
   
   
   
-  <title>配置虚拟机和使用GitHub写博客 - Hexo</title>
+  <title>python基础-5(各个数据类型的常用方法) - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="配置虚拟机和使用GitHub写博客"></span>
+            <span id="subtitle" data-typed-text="python基础-5(各个数据类型的常用方法)"></span>
           
         </div>
 
@@ -208,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-07 19:53" pubdate>
-          2023年11月7日 晚上
+        <time datetime="2023-12-04 20:09" pubdate>
+          2023年12月4日 晚上
         </time>
       </span>
     
@@ -220,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          746 字
         
       </span>
     
@@ -231,7 +242,7 @@
         
         
         
-          17 分钟
+          7 分钟
         
       </span>
     
@@ -268,99 +279,63 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">配置虚拟机和使用GitHub写博客</h1>
+            <h1 id="seo-header">python基础-5(各个数据类型的常用方法)</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="配置虚拟机"><a href="#配置虚拟机" class="headerlink" title="配置虚拟机"></a>配置虚拟机</h3><p>先下载软件__VMware__（此软件是用于使用虚拟机），再将win10的虚拟机<u>（Win10_1903_V2_Chinese(Simplified)_x64.iso）</u></p>
-<p>配置在VMware中。启动虚拟机看是否成功安装。  </p>
-<h3 id="使用GitHub写博客"><a href="#使用GitHub写博客" class="headerlink" title="使用GitHub写博客"></a>使用GitHub写博客</h3><p>下载git、node和Typota三个软件，其中git进行GitHub中博客相关操作，Typota进行编写博客操作。下面进行博客的创建： </p>
-<ol>
-<li>在本地找个目录放博客源文件，路径不要有中文。</li>
-<li>在选定的目录中，右键Git Bash Here，使用npm命令安装Hexo，输入：</li>
-</ol>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">npm <span class="hljs-keyword">install </span>-g hexo-cli <br>hexo init <span class="hljs-keyword">blog </span><br>cd <span class="hljs-keyword">blog </span><br>hexo g <br></code></pre></td></tr></table></figure>
+                <h2 id="字符串的常用方法"><a href="#字符串的常用方法" class="headerlink" title="字符串的常用方法"></a>字符串的常用方法</h2><h3 id="len"><a href="#len" class="headerlink" title="len()"></a>len()</h3><p>len时length（长度）的缩写，其作用是获取字符串的长度</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">s = <span class="hljs-string">&quot;china&quot;</span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(len(s)</span></span>)  <span class="hljs-comment">//输出s的长度，结果为5</span><br></code></pre></td></tr></table></figure>
 
-<p>创建博客。</p>
-<ol start="3">
-<li>再进行ssh密钥的配置，使用语句cd ~&#x2F;.ssh用于检查本机是否有ssh密钥（如果提示：No such file or directory 说明你是第一次使用git）。</li>
-<li>使用语句’ssh-keygen -t rsa -C “邮件地址”’，然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：写一个ssh密钥的标题，再将“C: \Users\当前用户名.ssh\id_rsa.pub”中的内容复制到key中。</li>
-<li>完成以上操作后测试ssh连接是否成功，使用’ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>‘（邮箱地址不用改），如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，提示“Hi LINF2009! You’ve successfully authenticated, but GitHub does not provide shell access.”则连接成功。最后在选中的位置(blog目录下)打开cmd，输入’npm install hexo-deployer-git –save’，再在上一个Git Bash Here还需要继续配置</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.name</span> “xxx”<span class="hljs-comment">// 你的github用户名，非昵称</span><br>git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.email</span> “xxx@qq.com“<span class="hljs-comment">// 填写你的github注册邮箱</span><br></code></pre></td></tr></table></figure>
-
-<p><em>注意：global前面的横杠是两个横杠</em></p>
-<ol start="6">
-<li>在GitHub上建立一个存储库，命名为github的用户名.github.io（必须与自己github注册用户名一致，因为Github 仅能使用一个同名仓库的代码托管一个静态站点），编辑_config.yml文件，在最后改成这样</li>
-</ol>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span> <br><span class="hljs-symbol">	type:</span> git<br><span class="hljs-symbol">	repository:</span> git@github.com:xxx/xxx.github.io.git<br><span class="hljs-symbol">	branch:</span> main<br></code></pre></td></tr></table></figure>
+<h3 id="find（）"><a href="#find（）" class="headerlink" title="find（）"></a>find（）</h3><p>查找指定内容在字符串中是否存在，如果存在则返回第一次出现该内容的位置的索引值，否则就返回-1。</p>
+<p>语法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">字符串名.<span class="hljs-built_in">find</span>(<span class="hljs-string">&#x27;查找内容&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 
 
-<p>最后上传。</p>
-<h3 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h3><ol>
-<li>文章的书写</li>
-</ol>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gauss">hexo <span class="hljs-keyword">new</span> [layout] &lt;<span class="hljs-built_in">title</span>&gt;<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgfind%EF%BC%88%EF%BC%89%E7%9A%84%E4%BD%BF%E7%94%A8.png" srcset="/img/loading.gif" lazyload alt="find（）的使用"></p>
+<p><strong>注意：find（）只返回第一次出现的位置的索引值。</strong></p>
+<h3 id="startswith-和endswith"><a href="#startswith-和endswith" class="headerlink" title="startswith()和endswith()"></a>startswith()和endswith()</h3><p>startswith()判断是否以‘xxx’开头，若是则返回True，不是则返回False。</p>
+<p>endswith()判断是否以‘xxx’结尾，若是则返回True，不是则返回False。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgstartswith%EF%BC%88%EF%BC%89%E5%92%8Cendswith%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="startswith（）和endswith（）"></p>
+<h3 id="count（）"><a href="#count（）" class="headerlink" title="count（）"></a>count（）</h3><p>统计str在string出现的次数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgcount%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="count（）"></p>
+<h3 id="replace（）"><a href="#replace（）" class="headerlink" title="replace（）"></a>replace（）</h3><p>将旧字符串替换为新字符串。语法：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">替换的字符串.<span class="hljs-built_in">replace</span>(<span class="hljs-string">&quot;旧字符串&quot;</span>,<span class="hljs-string">&quot;新字符串&quot;</span>)<br></code></pre></td></tr></table></figure>
 
-<p>eg: <code>hexo new &quot;post title with whitespace&quot;</code> 其中 layout为_config.yml中的默认参数值。</p>
-<ul>
-<li><code>-p --path</code> 自定义新文章</li>
-<li><code>-r --replace</code> 存在同名文章，替换</li>
-<li><code>-s --slug</code> 文章的slug，作为新文章的文件名和发布后的URL</li>
-</ul>
-<p>eg： <code>hexo new page --path about/me &quot;About me&quot;</code></p>
-<ol start="2">
-<li>生成静态文件</li>
-</ol>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog">hexo <span class="hljs-keyword">generate</span>` 或 `hexo g<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreplace%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="replace（）"></p>
+<h3 id="split（）"><a href="#split（）" class="headerlink" title="split（）"></a>split（）</h3><p>切割字符串，将字符串按照所给的字符串进行切割。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgspilt%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="spilt（）"></p>
+<p><strong>注意：经过spilt（）切割后会生成一个列表。</strong></p>
+<h3 id="upper（）和lower（）"><a href="#upper（）和lower（）" class="headerlink" title="upper（）和lower（）"></a>upper（）和lower（）</h3><p>upper（）将字符串的所有字母全部变成大写。</p>
+<p>lower（）将字符串的所有字母全部变成小写。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgupper%EF%BC%88%EF%BC%89%E5%92%8Clower%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="upper（）和lower（）"></p>
+<h3 id="join（）"><a href="#join（）" class="headerlink" title="join（）"></a>join（）</h3><p>将字符串添加到每个字符后面。语法：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">要添加的字符.<span class="hljs-keyword">join</span>(<span class="hljs-string">&quot;被添加的字符串&quot;</span>)<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li><code>-d 或--deploy</code> 文件生成后部署网站</li>
-<li><code>-w 或--watch</code> 监视文件变动</li>
-<li><code>-b 或--bail</code> 生成过程中出现异常则抛出。</li>
-<li><code>-f 或--force</code> 强制重新生成文件</li>
-<li><code>-c 或--concurrency</code> 最大同时生成文件数量，默认无限制。</li>
-</ul>
-<ol start="3">
-<li>发布草稿</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">hexo publish [layout] <span class="hljs-tag">&lt;<span class="hljs-name">filename</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgjoin%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="join（）"></p>
+<hr>
+<h2 id="列表的常用方法"><a href="#列表的常用方法" class="headerlink" title="列表的常用方法"></a>列表的常用方法</h2><h3 id="append（）"><a href="#append（）" class="headerlink" title="append（）"></a>append（）</h3><p>追加，将数据加入到列表的最后一项。语法：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dos">所要添加的列表.<span class="hljs-built_in">append</span>（数据）<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-启动服务器"><a href="#4-启动服务器" class="headerlink" title="4.启动服务器"></a>4.启动服务器</h3><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">hexo server<span class="hljs-string">` 启动服务器，ctrl+c 结束，默认地址为：`</span>http:<span class="hljs-comment">//localhost:4000/</span><br></code></pre></td></tr></table></figure>
 
-<p>5.部署网站</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">hexo deploy` 或`hexo d<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li><code>-g 或--generate</code> 部署之前写成静态文件</li>
-</ul>
-<p>6.渲染文件</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">hexo</span> render &lt;file1&gt;<span class="hljs-meta"> [file2]</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgappend%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="append（）"></p>
+<h3 id="insert（）"><a href="#insert（）" class="headerlink" title="insert（）"></a>insert（）</h3><p>添加数据到输入的列表索引值的位置。语法：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">所要添加的列表.<span class="hljs-built_in">insert</span>(索引值,所要添加的数据)<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li><code>-o或--output</code> 设置输出路径</li>
-</ul>
-<ol start="7">
-<li>清除缓存文件</li>
-</ol>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo clean</span><br></code></pre></td></tr></table></figure>
 
-<ol start="8">
-<li>列出网站资料</li>
-</ol>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">hexo</span> list &lt;<span class="hljs-keyword">type</span>&gt;<br></code></pre></td></tr></table></figure>
 
-<ol start="9">
-<li>显示草稿</li>
-</ol>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">hexo <span class="hljs-comment">--deaft</span><br></code></pre></td></tr></table></figure>
 
-<ol start="10">
-<li>自定义当前工作目录</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">hexo <span class="hljs-attr">--cwd</span> /path/<span class="hljs-selector-tag">to</span>/cwd<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imginsert%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="insert（）"></p>
+<h3 id="extend（）"><a href="#extend（）" class="headerlink" title="extend（）"></a>extend（）</h3><p>继承，将一个列表的值依次添加到另一个列表中。语法：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crystal">被添加的列表.<span class="hljs-keyword">extend</span>（添加的列表）<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgextend%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="extend（）"></p>
+
                 
               </div>
             
@@ -372,7 +347,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
+        <a href="/tags/python/" class="print-no-link">#python</a>
       
     </div>
   
@@ -384,8 +359,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>配置虚拟机和使用GitHub写博客</div>
-      <div>http://example.com/2023/11/07/2023-11-7-配置虚拟机和使用GitHub写博客/</div>
+      <div>python基础-5(各个数据类型的常用方法)</div>
+      <div>http://example.com/2023/12/04/python基础-5-各个数据类型的常用方法/</div>
     </div>
     <div class="license-meta">
       
@@ -397,7 +372,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月7日</div>
+          <div>2023年12月4日</div>
         </div>
       
       
@@ -429,15 +404,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/08/markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E7%9A%84%E9%85%8D%E7%BD%AE/" title="markdown语法及网络的配置">
+                      <a href="/2023/12/05/vm%E7%9A%84%E7%BD%91%E8%B7%AF%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%BC%8F%E5%8F%8A%E4%BB%A3%E7%90%86%E7%9A%84%E8%AE%BE%E7%BD%AE/" title="vm的不同模式及代理的设置">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">markdown语法及网络的配置</span>
+                        <span class="hidden-mobile">vm的不同模式及代理的设置</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/12/04/%E6%9C%A8%E9%A9%AC%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BD%91%E5%9D%80/" title="木马的使用及网址">
+                        <span class="hidden-mobile">木马的使用及网址</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
