@@ -23,11 +23,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="文件操作打开文件1open(文件路径,mode&#x3D;&quot;&quot;,encoding&#x3D;&quot;&quot;)  文件路径：  绝对路径 在d盘下的python文件下的xxxx.txt文件 d:&#x2F;python&#x2F;xxxx.txt 绝对路径不好将文件在不同环境下打开。（linux里就没有d盘）  相对路径 相当于当前程序所在的文件夹下。 .&#x2F;表示当前目录下 ..&#x2F;表示当前目">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreadline%EF%BC%88%EF%BC%89%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreadlines%EF%BC%88%EF%BC%89%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E8%A1%8C.png">
 <meta property="article:published_time" content="2023-12-08T09:10:00.000Z">
-<meta property="article:modified_time" content="2023-12-08T09:44:09.220Z">
+<meta property="article:modified_time" content="2023-12-10T02:15:55.126Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96.png">
   
   
   
@@ -220,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          276 字
+          490 字
         
       </span>
     
@@ -231,7 +235,7 @@
         
         
         
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -292,7 +296,15 @@
 <p>w：写模式</p>
 <p>encoding：</p>
 <p>设置编码格式。</p>
-<p>将打开的文件赋值给一个变量，再将文件读出的结果赋值个一个变量，再将变量打印就可以看到文件的内容了。</p>
+<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p>将打开的文件赋值给一个变量，再将文件读出的结果赋值给一个变量，再将变量打印就可以看到文件的内容了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96.png" srcset="/img/loading.gif" lazyload alt="文件读取"></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">文件名<span class="hljs-string">.read</span><span class="hljs-params">()</span>    <span class="hljs-string">//</span>将文件全部读取<br>文件名<span class="hljs-string">.readline</span><span class="hljs-params">()</span>    <span class="hljs-string">//</span>将文件以一行读取，再次使用能将下一行读取<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreadline%EF%BC%88%EF%BC%89%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C.png" srcset="/img/loading.gif" lazyload alt="readline（）文件读取一行"></p>
+<p><strong>注意：使用print时会自动换行，在文章行末尾也有换行符，所以每次使用readline（）时会出现数据间隔一行的情况。需使用<code>f.readline().strip()</code>将字符串首尾两边的空白字符删除（空格、换行、制表符）。</strong></p>
+<p><code>文件名.readlines()</code>将文件的所有行放入列表中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreadlines%EF%BC%88%EF%BC%89%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E8%A1%8C.png" srcset="/img/loading.gif" lazyload alt="readlines（）读取文件所有行"></p>
+<p>可以看到所有的数据后面都有换行符</p>
 
                 
               </div>
