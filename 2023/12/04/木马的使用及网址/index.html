@@ -33,9 +33,12 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img6f88adefdb733aa02190564af78709eb.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img1538030296-7490-20150904094019903-1923900106.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img1538030296-8668-20150904095142060-1017190812.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimgget%25E5%2592%258Cpost%25E4%25BC%25A0%25E5%258F%2582.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img06f23ef6c8db46e59049279a0ce9cd20.png">
 <meta property="article:published_time" content="2023-12-04T11:05:35.000Z">
-<meta property="article:modified_time" content="2023-12-05T12:07:07.118Z">
+<meta property="article:modified_time" content="2023-12-10T01:48:29.339Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgshell%E4%BC%A0%E9%80%92.png">
   
@@ -230,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.4k 字
+          7.8k 字
         
       </span>
     
@@ -241,7 +244,7 @@
         
         
         
-          54 分钟
+          65 分钟
         
       </span>
     
@@ -283,13 +286,14 @@
             
               <div class="markdown-body">
                 
-                <h3 id="木马的使用"><a href="#木马的使用" class="headerlink" title="木马的使用"></a>木马的使用</h3><p>cs模式</p>
+                <h2 id="木马的使用"><a href="#木马的使用" class="headerlink" title="木马的使用"></a>木马的使用</h2><p>cs模式</p>
 <p>c是客户端，s是服务端。</p>
 <p>c对s发送信息是反弹shell</p>
 <p>s对c发送信息是正常shell</p>
 <p>ip为0.0.0.0是本机所有IP地址。0.0.0.0，最特殊的一个ip地址，代表的是本机所有ip地址，不管你有多少个网口，多少个ip，如果监听本机的0.0.0.0上的端口，就等于监听机器上的所有ip端口。换句话说，就是只要数据报目的地址是你机器上的一个ip地址，那么就能被接受。这个ip相当于java中的this，代表当前设备的IP。 </p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgshell%E4%BC%A0%E9%80%92.png" srcset="/img/loading.gif" lazyload alt="shell传递"></p>
 <p>但正常shell发送信息时可能会被防火墙拦截，所以不常使用。</p>
+<hr>
 <h2 id="ahmyth安卓远控"><a href="#ahmyth安卓远控" class="headerlink" title="ahmyth安卓远控"></a>ahmyth安卓远控</h2><p>下载<a target="_blank" rel="noopener" href="http://192.168.2.6:5244/d/%E7%BD%91%E7%9B%98/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/%E8%BD%AF%E4%BB%B6%E5%A4%A7%E5%85%A8/%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/%E8%BF%9C%E6%8E%A7/%E5%AE%89%E5%8D%93%E7%97%85%E6%AF%92%E7%9B%91%E5%90%AC/AhMyth_Win64.exe">ahmyth</a>点击进入后：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgahmyth.png" srcset="/img/loading.gif" lazyload alt="ahmyth"></p>
 <p>点击”APK Builder”：</p>
@@ -468,6 +472,16 @@
 <li><strong>1&gt; 数据传输基本单位为报文；</strong></li>
 <li><strong>2&gt; 包含的主要协议：FTP（文件传送协议）、Telnet（远程登录协议）、DNS（域名解析协议）、SMTP（邮件传送协议），POP3协议（邮局协议），HTTP协议（Hyper Text Transfer Protocol）。</strong></li>
 </ul>
+<hr>
+<h2 id="端口号和域名地址"><a href="#端口号和域名地址" class="headerlink" title="端口号和域名地址"></a>端口号和域名地址</h2><h3 id="常见端口号"><a href="#常见端口号" class="headerlink" title="常见端口号"></a>常见端口号</h3><p>常用的端口号20，21，23，80等。<br>　　21：FTP服务所开放的端口，用于上传、下载文件。<br>　　22：SSH端口，用于通过命令行模式远程连接Linux服务器或vps。<br>　　23：Telnet端口，用于Telnet远程登录服务器。<br>　　25：SMTP服务所开放的端口，用于发送邮件。<br>　　80：HTTP用于HTTP服务提供访问功能，例如，IIS、Apache、Nginx 等服务。您可以参阅、检查、TCP 80端口是否正常工作，排查80端口故障。<br>　　110：POP3用于POP3 协议，POP3 是电子邮件收发的协议。<br>　　143：IMAP用于IMAP（Internet Message Access Protocol）协议，IMAP 是用于电子邮件的接收的协议。</p>
+<p>​        445： SMB(Server Message Block) Windows协议族，用于文件共享、打印共享的服务</p>
+<p>　　443：HTTPS 用于HTTPS服务提供访问功能。HTTPS 是一种能提供加密和通过安全端口传输的一种协议。</p>
+<p>　　1433：SQL Server SQL Server的TCP 端口，用于供SQL Server对外提供服务。<br>　　1434：SQL Server SQL Server的UDP端口，用于返回SQL Server使用了哪个 TCP&#x2F;IP 端口。<br>　　1521：Oracle通信端口，服务器上部署了Oracle SQL需要放行的端口。<br>　　3306：MySQL数据库对外提供服务的端口。<br>　　3389：Windows Server Remote Desktop Services Windows Server Remote Desktop Services（远程桌面服务）端口，可以通过这个端口远程连接服务器<br>　　8080：代理端口,同80端口一样，8080 端口常用于WWW代理服务，实现网页浏览。如果用了8080端口，访问网站或使用代理服务器时，需要在 IP 地址后面加上 :8080。安装Apache Tomcat服务后，默认服务端口为8080。<br>　　137、138、139 NetBIOS协议137、138 为UDP端口，通过网上邻居传输文件时使用的端口。139通过这个端口进入的连接试图获得 NetBIOS&#x2F;SMB 服务。NetBIOS协议常被用于Windows文件、打印机共享和Samba。</p>
+<h3 id="dns域名解析"><a href="#dns域名解析" class="headerlink" title="dns域名解析"></a>dns域名解析</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimgget%25E5%2592%258Cpost%25E4%25BC%25A0%25E5%258F%2582.png" srcset="/img/loading.gif" lazyload alt="get和post传参"></p>
+<p>什么是DNS域名解析</p>
+<p>​	我们首先要了解域名和IP地址的区别。IP地址是互联网上计算机唯一的逻辑地址，通过IP地址实现不同计算机之间的相互通信，每台联网计算机都需要通过IP地址来互相联系和分别。<br>​	但由于IP地址是由一串容易混淆的数字串构成，人们很难记忆所有计算机的IP地址，这样对于我们日常工作生活访问不同网站是很困难的。基于这种背景，人们在IP地址的基础上又发展出了一种更易识别的符号化标识，这种标识由人们自行选择的字母和数字构成，相比IP地址更易被识别和记忆，逐渐代替IP地址成为互联网用户进行访问互联的主要入口。这种符号化标识就是域名。<br>​	域名虽然更易被用户所接受和使用，但计算机只能识别纯数字构成的IP地址，不能直接读取域名。因此要想达到访问效果，就需要将域名翻译成IP地址。而DNS域名解析承担的就是这种翻译效果。</p>
+<h4 id="DNS-域名解析过程"><a href="#DNS-域名解析过程" class="headerlink" title="DNS****域名解析过程"></a><strong>DNS****域名解析过程</strong></h4><p>​    当我们在浏览器地址栏中输入<a href="http://www.baidu.com时，DNS解析将会有将近10个步骤，这个过程大体大体由一张图可以表示：">www.baidu.com时，DNS解析将会有将近10个步骤，这个过程大体大体由一张图可以表示：</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img06f23ef6c8db46e59049279a0ce9cd20.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 
                 
               </div>
@@ -476,6 +490,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BD%91%E7%BB%9C/" class="print-no-link">#网络</a>
+      
+    </div>
   
 </div>
 
