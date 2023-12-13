@@ -18,7 +18,7 @@
   
     <meta name="description" content="函数函数的概念对某一个特定的功能或者代码块进行封装，在需要使用该功能时直接调用即可。 函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。 函数能提高应用的模块性，和代码的重复利用率。你已经知道Python提供了许多内建函数，比如print()。但你也可以自己创建函数，这被叫做用户自定义函数。 定义一个函数你可以定义一个由自己想要功能的函数，以下是简单的规则：  函数代码块以 def">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python基础-7（python中的函数）">
+<meta property="og:title" content="python基础-7（python中的函数及其内置函数（少））">
 <meta property="og:url" content="http://example.com/2023/12/10/python%E5%9F%BA%E7%A1%807%EF%BC%88python%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="函数函数的概念对某一个特定的功能或者代码块进行封装，在需要使用该功能时直接调用即可。 函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。 函数能提高应用的模块性，和代码的重复利用率。你已经知道Python提供了许多内建函数，比如print()。但你也可以自己创建函数，这被叫做用户自定义函数。 定义一个函数你可以定义一个由自己想要功能的函数，以下是简单的规则：  函数代码块以 def">
@@ -30,8 +30,27 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%BB%98%E8%AE%A4%E5%80%BC%E5%8F%82%E6%95%B0.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%8A%A8%E6%80%81%E4%BC%A0%E5%8F%82.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%85%B3%E9%94%AE%E5%AD%97%E5%8A%A8%E6%80%81%E4%BC%A0%E5%8F%82.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%B0%86%E5%88%97%E8%A1%A8%E7%9A%84%E5%80%BC%E5%85%A8%E9%83%A8%E4%BC%A0%E5%85%A5%E5%87%BD%E6%95%B0%E4%B8%AD.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreturn%E8%BF%94%E5%9B%9E%E5%80%BC.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreturn%E8%BF%94%E5%9B%9E%E5%A4%9A%E4%B8%AA%E5%80%BC.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%87%BD%E6%95%B0%E7%9A%84%E5%B5%8C%E5%A5%97.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%89%A7%E8%A1%8C%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%AE%9E%E5%8F%82%E6%98%AF%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgglobal%E5%BC%95%E7%94%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%9C%A8%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0%E4%B8%AD%E5%BC%95%E5%85%A5%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgpython%E4%B8%AD%E6%95%B0%E5%AD%A6%E7%9A%84%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgformat%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E5%AD%97.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgformat%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%95%B0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgord()%E5%92%8Cchr()%E7%9A%84%E4%BD%9C%E7%94%A8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgall%EF%BC%88%EF%BC%89%E5%92%8Cany%EF%BC%88%EF%BC%89%E7%9A%84%E4%BD%9C%E7%94%A8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgenumerate%EF%BC%88%EF%BC%89%E4%BD%9C%E7%94%A8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imghash%EF%BC%88%EF%BC%89.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgid%EF%BC%88%EF%BC%89%E8%8E%B7%E5%BE%97%E6%95%B0%E6%8D%AE%E7%9A%84%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgdir%EF%BC%88s%EF%BC%89%E6%9F%A5%E7%9C%8B%E8%83%BD%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AF%AD%E5%8F%A5.png">
 <meta property="article:published_time" content="2023-12-10T08:58:04.000Z">
-<meta property="article:modified_time" content="2023-12-10T12:56:55.781Z">
+<meta property="article:modified_time" content="2023-12-12T13:31:41.792Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,7 +58,7 @@
   
   
   
-  <title>python基础-7（python中的函数） - Hexo</title>
+  <title>python基础-7（python中的函数及其内置函数（少）） - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +224,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="python基础-7（python中的函数）"></span>
+            <span id="subtitle" data-typed-text="python基础-7（python中的函数及其内置函数（少））"></span>
           
         </div>
 
@@ -228,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          890 字
+          2.7k 字
         
       </span>
     
@@ -239,7 +258,7 @@
         
         
         
-          8 分钟
+          23 分钟
         
       </span>
     
@@ -276,7 +295,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">python基础-7（python中的函数）</h1>
+            <h1 id="seo-header">python基础-7（python中的函数及其内置函数（少））</h1>
             
             
               <div class="markdown-body">
@@ -335,12 +354,75 @@
 <p>若是默认值参数在*args前面则默认值参数只用在关键字参数后面没有实参时才能生效，所以*args必须要在默认值参数前面。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">def <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(*args, **kwargs)</span></span>   <span class="hljs-comment">//没有限制的接收任何参数</span><br></code></pre></td></tr></table></figure>
 
+<p><em>假设有一个列表和一个接收所有值的函数，需要将所有列表中的值传入函数中可以将函数（*+列表）作为实参，可以直接将列表的值都传入函数中。</em></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%B0%86%E5%88%97%E8%A1%A8%E7%9A%84%E5%80%BC%E5%85%A8%E9%83%A8%E4%BC%A0%E5%85%A5%E5%87%BD%E6%95%B0%E4%B8%AD.png" srcset="/img/loading.gif" lazyload alt="将列表的值全部传入函数中"></p>
+<h3 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h3><p>函数调用执行后，会给调用方                                      一个结果，这个结果解释返回值。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreturn%E8%BF%94%E5%9B%9E%E5%80%BC.png" srcset="/img/loading.gif" lazyload alt="return返回值"></p>
+<p>若返回值为空或没有写return，则函数返回值为None。</p>
+<p>无论return下面有多少条语句，函数都不会执行下去。</p>
+<p>若return后面不跟数据，此时接收到的返回值依然是None。</p>
+<p>return+值此时外界就能收到一个return返回的值。</p>
+<p>若return后面有多个值则外界就会收到一个元组。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgreturn%E8%BF%94%E5%9B%9E%E5%A4%9A%E4%B8%AA%E5%80%BC.png" srcset="/img/loading.gif" lazyload alt="return返回多个值"></p>
+<hr>
+<h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F.png" srcset="/img/loading.gif" lazyload alt="变量作用域"></p>
+<p>上图中的a就是全局变量，b是局部变量。</p>
+<p>在函数中也可以调用全局变量，而在函数外无法调用局部变量。</p>
+<p>函数的作用域是全局。</p>
+<h3 id="函数的嵌套"><a href="#函数的嵌套" class="headerlink" title="函数的嵌套"></a>函数的嵌套</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%87%BD%E6%95%B0%E7%9A%84%E5%B5%8C%E5%A5%97.png" srcset="/img/loading.gif" lazyload alt="函数的嵌套"></p>
+<p><strong>局部变量函数在外面无法访问，只有在func1（）中可以调用func2（）。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%89%A7%E8%A1%8C%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload alt="执行嵌套函数"></p>
+<p><strong>在func1（）设置返回值为func1（）中的函数，并赋值给一个变量，此时该变量就可以执行函数了。 所以函数可以相当于一个变量。都表示一个内存地址。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%AE%9E%E5%8F%82%E6%98%AF%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload alt="实参是函数"></p>
+<p><strong>注意：实参也可以是一个函数。将inner（）作为一个实参传入func1（）中，在func1（）中执行inner（）函数。</strong></p>
+<h4 id="两个关键字"><a href="#两个关键字" class="headerlink" title="两个关键字"></a>两个关键字</h4><p>若声明一个全局变量<code>a = 10</code>,再声明一个函数，在函数中再声明一个变量<code>a = 20</code>,在函数体外面执行函数并打印变量a。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.png" srcset="/img/loading.gif" lazyload alt="局部变量和全局变量"></p>
+<p>此时函数中的a是函数创建的一个全局变量，没有改变全局变量的a。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">global</span> 变量    //在局部，引如全局变量<br><span class="hljs-keyword">nonlocal</span> 变量    //在局部，引入外层的局部变量<br></code></pre></td></tr></table></figure>
 
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgglobal%E5%BC%95%E7%94%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.png" srcset="/img/loading.gif" lazyload alt="global引用全局变量"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%9C%A8%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0%E4%B8%AD%E5%BC%95%E5%85%A5%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F.png" srcset="/img/loading.gif" lazyload alt="在嵌套函数中引入局部变量"></p>
+<p><strong>注意：nonlocal关键字是向函数外找一层，看有没有相应的变量，如果有则引入，没有则报错（不包括全局变量）。</strong></p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>定义一个函数并声明一个变量，再定义一个嵌套函数该函数引入了外层函数的变量并且返回值为该变量，第一个函数的返回值是嵌套函数名。</p>
+<p>本质是内层函数对外层函数的局部变量的使用，此时内层函数被称为闭包函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">//闭包结构<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>	a = <span class="hljs-number">10</span><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">inner</span>():<br>		<span class="hljs-keyword">nonlocal</span> a <br>		<span class="hljs-built_in">print</span>(a)<br>		<span class="hljs-keyword">return</span> a<br>	<span class="hljs-keyword">return</span> inner<br></code></pre></td></tr></table></figure>
 
+<p>由于需要闭包函数能一直使用所以闭包的变量需要一直存在。</p>
+<p>由于再函数外无法修改函数内的局部变量，只有使用闭包函数才能修改，所以将全局变量放入闭包函数中可以可以避免全局变量被修改。</p>
+<p>作用：</p>
+<p>1.可以让一个变量常驻于内存。</p>
+<p>2.可以避免全局变量被修改。</p>
+<hr>
+<h2 id="python的内置函数"><a href="#python的内置函数" class="headerlink" title="python的内置函数"></a>python的内置函数</h2><h3 id="数值类型转换"><a href="#数值类型转换" class="headerlink" title="数值类型转换"></a>数值类型转换</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123&quot;</span><br><span class="hljs-attribute">i</span> <span class="hljs-operator">=</span> int(s)      <br><span class="hljs-attribute">f</span> <span class="hljs-operator">=</span> float(s)<br><span class="hljs-attribute">b</span> <span class="hljs-operator">=</span> bool(s)<br></code></pre></td></tr></table></figure>
 
+<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">bin</span><span class="hljs-params">(<span class="hljs-number">18</span>)</span></span>   <span class="hljs-comment">//将十进制转换成二进制（0b10010）</span><br><span class="hljs-function"><span class="hljs-title">oct</span><span class="hljs-params">(<span class="hljs-number">18</span>)</span></span>    <span class="hljs-comment">//将十进制转换成八进制(0o22)</span><br><span class="hljs-function"><span class="hljs-title">hex</span><span class="hljs-params">(<span class="hljs-number">18</span>)</span></span>    <span class="hljs-comment">//将十进制转换成十六进制(0x12)</span><br></code></pre></td></tr></table></figure>
 
+<h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">sum</span>       <span class="hljs-comment">//求和</span><br><span class="hljs-built_in">min</span>       <span class="hljs-comment">//取最小值</span><br><span class="hljs-built_in">max</span>       <span class="hljs-comment">//取最大值</span><br><span class="hljs-built_in">pow</span>       <span class="hljs-comment">//乘方</span><br></code></pre></td></tr></table></figure>
 
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgpython%E4%B8%AD%E6%95%B0%E5%AD%A6%E7%9A%84%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload alt="python中数学的内置函数"></p>
+<h3 id="转换为列表或元组"><a href="#转换为列表或元组" class="headerlink" title="转换为列表或元组"></a>转换为列表或元组</h3> <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">list</span><span class="hljs-params">()</span></span>        <span class="hljs-comment">//转换为列表</span><br><span class="hljs-function"><span class="hljs-title">tuple</span><span class="hljs-params">()</span></span>       <span class="hljs-comment">//转换为元组</span><br></code></pre></td></tr></table></figure>
 
+<p>在转换的过程是将字符串遍历并将每一个数据传入列表或元组中。</p>
+<h3 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">format（数据，编码格式）       <span class="hljs-regexp">//</span>格式化，<span class="hljs-string">&quot;b&quot;</span>:二进制   <span class="hljs-string">&quot;o&quot;</span>：八进制   <span class="hljs-string">&quot;x&quot;</span>：十六进制<br>ord（字符串）            <span class="hljs-regexp">//</span>寻找字符串在unicode中编码的位置<br>chr（编码位置）           <span class="hljs-regexp">//</span>给出编码位置找出文字<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgformat%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E5%AD%97.png" srcset="/img/loading.gif" lazyload alt="format格式化数字"></p>
+<p>format可以补充对应位数的值，如将18转换成二进制为10010，写成“08b”则会输出00010010，第一个数字0表示补充的数为0，第二个数字8表示补充道8位。若是数值超出了二进制八位能输出的范围则正常输出。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgformat%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E6%95%B0.png" srcset="/img/loading.gif" lazyload alt="format格式化二进制位数"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgord()%E5%92%8Cchr()%E7%9A%84%E4%BD%9C%E7%94%A8.png" srcset="/img/loading.gif" lazyload alt="ord()和chr()的作用"></p>
+<p>可以从上图看出ord（）将字符串中字的编码位置显示出来了，是20013。</p>
+<p>chr（）将编码位置转换成字符串。</p>
+<h3 id="相关内置函数"><a href="#相关内置函数" class="headerlink" title="相关内置函数"></a>相关内置函数</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">enumerate</span><span class="hljs-params">(list,数字)</span></span>         <span class="hljs-comment">//相当于遍历列表的数据，也可以自定义开始的数</span><br><span class="hljs-function"><span class="hljs-title">all</span><span class="hljs-params">(多个可迭代对象)</span></span>            <span class="hljs-comment">//相当于and，将所有数据用and连接进行判断</span><br><span class="hljs-function"><span class="hljs-title">any</span><span class="hljs-params">(多个可迭代对象)</span></span>            <span class="hljs-comment">//相当于or，将所有数据用or连接进行判断</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgall%EF%BC%88%EF%BC%89%E5%92%8Cany%EF%BC%88%EF%BC%89%E7%9A%84%E4%BD%9C%E7%94%A8.png" srcset="/img/loading.gif" lazyload alt="all（）和any（）的作用"></p>
+<p><strong>注意：all（）和any（）的参数必须是可迭代对象。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgenumerate%EF%BC%88%EF%BC%89%E4%BD%9C%E7%94%A8.png" srcset="/img/loading.gif" lazyload alt="enumerate（）作用"></p>
+<p><strong>遍历列表并放入元组中</strong></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">hash</span><span class="hljs-params">()</span></span>      <span class="hljs-comment">//一定是一个数字 -&gt; 想办法转化成内存地址，然后进行数据的存储 -&gt; 和字典（集合）哈希表的工作原理一致</span><br><span class="hljs-function"><span class="hljs-title">id</span><span class="hljs-params">()</span></span>       <span class="hljs-comment">//直接获得数据的内存地址</span><br>help（函数）   <span class="hljs-comment">//查看帮助</span><br>dir（数据）    <span class="hljs-comment">//当前数据能执行的语句</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imghash%EF%BC%88%EF%BC%89.png" srcset="/img/loading.gif" lazyload alt="hash（）"></p>
+<p>将数据储存的地址转换成哈希数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgid%EF%BC%88%EF%BC%89%E8%8E%B7%E5%BE%97%E6%95%B0%E6%8D%AE%E7%9A%84%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80.png" srcset="/img/loading.gif" lazyload alt="id（）获得数据的内存地址"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgdir%EF%BC%88s%EF%BC%89%E6%9F%A5%E7%9C%8B%E8%83%BD%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AF%AD%E5%8F%A5.png" srcset="/img/loading.gif" lazyload alt="dir（s）查看能使用的语句"></p>
 
                 
               </div>
@@ -365,7 +447,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>python基础-7（python中的函数）</div>
+      <div>python基础-7（python中的函数及其内置函数（少））</div>
       <div>http://example.com/2023/12/10/python基础7（python中的函数）/</div>
     </div>
     <div class="license-meta">
@@ -409,6 +491,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/12/12/php%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="php基本语法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">php基本语法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
