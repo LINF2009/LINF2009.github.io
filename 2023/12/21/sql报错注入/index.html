@@ -36,8 +36,21 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%89%BE%E5%88%B0mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E6%9B%B4%E6%94%B9mysql%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%80%9A%E8%BF%87get%E4%BC%A0%E5%8F%82%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_14-42-27.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img4tksbka1vc.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img4g7c8mudno.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgm8zrxil2nf.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgup0suavanp.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_19-11-46.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_19-28-28.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-32-16.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-32-16.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-52-47.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-58-27.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_21-03-22.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_21-07-27.png">
 <meta property="article:published_time" content="2023-12-21T06:44:12.000Z">
-<meta property="article:modified_time" content="2023-12-24T02:31:33.412Z">
+<meta property="article:modified_time" content="2023-12-28T13:07:43.176Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary_large_image">
@@ -234,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          4.1k 字
         
       </span>
     
@@ -245,7 +258,7 @@
         
         
         
-          28 分钟
+          35 分钟
         
       </span>
     
@@ -330,7 +343,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E9%80%9A%E8%BF%87get%E4%BC%A0%E5%8F%82%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5.png" srcset="/img/loading.gif" lazyload alt="通过get传参进行注入"></p>
 <p>可以在这个页面中传入get参数以使用system()函数查看内容。</p>
 <h2 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h2><p>通过判断网页的响应时间进行注入。可以使用sqlmap强行注入。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">if</span>(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">114</span>,<span class="hljs-number">1</span>,BENCHMARK(<span class="hljs-number">5000000</span>, SHA1(&#x27;Hello World&#x27;)))-- -<br><br><br><span class="hljs-attribute">SELECT</span> BENCHMARK(<span class="hljs-number">1000000</span>, SHA1(&#x27;Hello World&#x27;)); //延时函数<br><br><br><span class="hljs-attribute">http</span>://<span class="hljs-number">192.168.2.70</span>/sqli/Less-<span class="hljs-number">9</span>/?id=<span class="hljs-number">1</span>&#x27; and If(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">115</span>,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">5</span>))-- -<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">if</span>(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">114</span>,<span class="hljs-number">1</span>,BENCHMARK(<span class="hljs-number">5000000</span>, SHA1(&#x27;Hello World&#x27;)))-- -<br><br><span class="hljs-attribute">if</span>(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">115</span>,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">4</span>))-- -<br><br><br><span class="hljs-attribute">SELECT</span> BENCHMARK(<span class="hljs-number">1000000</span>, SHA1(&#x27;Hello World&#x27;)); //延时函数<br><br><br><br><br><span class="hljs-attribute">http</span>://<span class="hljs-number">192.168.2.70</span>/sqli/Less-<span class="hljs-number">9</span>/?id=<span class="hljs-number">1</span>&#x27; and if(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">115</span>,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">5</span>))-- -<br></code></pre></td></tr></table></figure>
 
 
 
@@ -342,6 +355,50 @@
 
 <h2 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h2><p>在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，在后端代码中可能会被转义，但在存入数据库时还是原来的数据，数据中一般带有单引号和＃号，然后下次使用在拼凑SQL中，所以就形成了二次注入。</p>
 <p>在注册账号时注册用户名为<code>admin&#39;-- -</code>，但是在登录用户<code>admin&#39;-- -</code>时会将后方语句全部注释导致登录<code>admin</code>账户，也可以利用用户<code>admin&#39;-- -</code>来修改<code>admin</code>账户的密码。</p>
+<h2 id="宽字节转换"><a href="#宽字节转换" class="headerlink" title="宽字节转换"></a>宽字节转换</h2><p>将原来使用utf-8编码时无法使用的符号，如less-32，使用<code>&#39;</code>会被转移而无法使用<code>&#39;</code>的功能，但是在代码中会使用gbk编码。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_14-42-27.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_14-42-27"></p>
+<p>将<code>&#39;</code>前面添加<code>%df</code>将<code>&#39;</code>的编码转换成了gbk编码从而绕过网页的转义，输出<code>&#39;</code>。</p>
+<h2 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">select</span> * from users; select <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>在一条语句中执行两句语句。</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>;<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> users(id,username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;1&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="参数污染"><a href="#参数污染" class="headerlink" title="参数污染"></a>参数污染</h2><p>给一个参数附多个值。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">1</span>&amp;<span class="hljs-built_in">id</span>=<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<p>不同的语言接收到的参数是不同的。</p>
+<p>在不同的搜索引擎中进行搜索，在地址栏输入URL：?p&#x3D;usa&amp;p&#x3D;china，这里重复相同搜索参数，观察搜索结果的不同：</p>
+<p>1）百度接受第一个参数（usa）而放弃第二个参数（china）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img4tksbka1vc.jpeg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>2）Yahho接受第二个参数（china）而放弃第一个参数（usa）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img4g7c8mudno.jpeg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>3）Google会将两个值都接受，并通过一个空格将两个参数连接起来，组成一个参数：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgm8zrxil2nf.jpeg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>具体服务端对应的不同处理方式如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgup0suavanp.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="绕过safedog"><a href="#绕过safedog" class="headerlink" title="绕过safedog"></a>绕过safedog</h2><p>如果网页开启了safedog在进行普通的sql注入时会被safedog拦截。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_19-11-46.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_19-11-46"></p>
+<p>这时需要使用抓包判断有哪些要用的语句被过滤了。</p>
+<p>进行简单的输入发现<code>union和select</code>不会被拦截，但是使用<code>union select</code>就会被拦截。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_19-28-28.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_19-28-28"></p>
+<p>所以要绕过他的过滤。使用<code>/*!....*/</code>对语句进行包裹。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-32-16.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_20-32-16"></p>
+<p>发现还是无法绕过。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-32-16.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_20-32-16"></p>
+<p>可以尝试在绕过符号中添加一些无意义的字符。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-52-47.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_20-52-47"></p>
+<p>可以发现没有出现拦截了，而是出现了报错。现在进行五位数的随机注入。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_20-58-27.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_20-58-27"></p>
+<p>可以看出很多五位数都能绕过过滤。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_21-03-22.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_21-03-22"></p>
+<p>也可以使用特殊字符进行绕过。如<code>/*//--//*/</code>。也能成功绕过。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-28_21-07-27.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-28_21-07-27"></p>
 
                 
               </div>

