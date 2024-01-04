@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-29_17-22-13.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-29_17-30-55.png">
 <meta property="article:published_time" content="2023-12-29T03:12:59.000Z">
-<meta property="article:modified_time" content="2024-01-02T13:09:59.221Z">
+<meta property="article:modified_time" content="2024-01-03T12:34:51.366Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="网络渗透">
 <meta name="twitter:card" content="summary_large_image">
@@ -233,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.6k 字
+          6.7k 字
         
       </span>
     
@@ -244,7 +244,7 @@
         
         
         
-          55 分钟
+          56 分钟
         
       </span>
     
@@ -488,7 +488,7 @@
 <tr>
 <td>~</td>
 <td>同义符;在搜索词前使用，表示会和同时搜索相近词义的词;示例中会同搜元素</td>
-<td>~  silicon</td>
+<td>~mobile phone</td>
 </tr>
 <tr>
 <td>..</td>
@@ -496,24 +496,24 @@
 <td>手机价格2000..5000</td>
 </tr>
 <tr>
-<td>fliletype:</td>
+<td>fliletype: ext:</td>
 <td>把搜索范围限定在特定文件类型中; .pdf&#x2F;.doc&#x2F;.docx&#x2F;.ppt&#x2F;.pptx&#x2F;.xls&#x2F;.xlsx&#x2F;.rtf&#x2F;.txt&#x2F;.swf&#x2F;.ps</td>
 <td>霍金 黑洞filetype:pdf</td>
 </tr>
 <tr>
 <td>site:</td>
 <td>把搜索范围限定在特定站点、某一站点特定频道、特定域名后缀中</td>
-<td>科技 site:news.163.com</td>
+<td>ip地址 site:zhihu.com</td>
 </tr>
 <tr>
-<td>inurll:</td>
+<td>inurl:</td>
 <td>把搜索范围限定在url链接中</td>
-<td>inurl:jiqiao  photoshop</td>
+<td>inurl:apple</td>
 </tr>
 <tr>
 <td>allinurl:</td>
 <td>把搜索范围限定在url链接中, 只不过其后所有关键词均要在url链接中出现</td>
-<td>allinurl:jiqiao  photoshop</td>
+<td>allinurl:apple phone</td>
 </tr>
 <tr>
 <td>intitle:</td>
@@ -528,7 +528,7 @@
 <tr>
 <td>intext:</td>
 <td>把搜索范围限定在网页正文中; 忽略超链接文本、URL以及题目等</td>
-<td></td>
+<td>intext:apple</td>
 </tr>
 <tr>
 <td>inanchor:</td>
@@ -538,7 +538,7 @@
 <tr>
 <td>anchor:</td>
 <td>检索某一作者&#x2F;发明人的论著; 只在Google Scholar中可用</td>
-<td>anchor:&#x2F;作者:</td>
+<td>anchor:吴清源</td>
 </tr>
 <tr>
 <td>link:</td>
@@ -548,7 +548,7 @@
 <tr>
 <td>cache:</td>
 <td>Google网页快照</td>
-<td></td>
+<td>cache:apple.com</td>
 </tr>
 <tr>
 <td>related:</td>
@@ -568,12 +568,17 @@
 <tr>
 <td>daterange:</td>
 <td>查找在一定的日期或者一定的日期范围内; 只关注被Google收录的时间</td>
-<td></td>
+<td>daterange:11278–13278</td>
+</tr>
+<tr>
+<td>map:</td>
+<td>强制返回地图</td>
+<td>map:北京</td>
 </tr>
 <tr>
 <td>location:</td>
 <td>指定地区区域内查询关键词相关的网页</td>
-<td>wow  gold location:France</td>
+<td>location:北京</td>
 </tr>
 <tr>
 <td>weather:</td>
@@ -591,6 +596,7 @@
 <td>define:  暗网</td>
 </tr>
 </tbody></table>
+<p><strong>注意：在google浏览器中输入计算器或颜色选择器可以直接出现。</strong></p>
 <p>“问题”</p>
 <p>问题* 所有相关字符</p>
 <p>+-  指定搜索的信息</p>
@@ -617,7 +623,11 @@
 <p>9.<code>phonebook:</code></p>
 <p>电话簿查询美国街道地址和电话号码信息。例如 “phonebook:Lisa+CA”将查询名字里面包含“Lisa” 并住在加州的人的所有名字。这对黑客使用社会工程学去挖掘个人信息是很有用的。</p>
 <p>10.<code>Index of:</code></p>
-<p>利用“Index of ”语法去发现允许目录浏览的web网站，就象在本地的普通目录一样。下面是一些有趣的查询：<br>Index of &#x2F;admin<br>Index of &#x2F;passwd<br>Index of &#x2F;password<br>Index of &#x2F;mail<br>“Index of &#x2F;” +passwd<br>“Index of &#x2F;” +password.txt<br>“Index of &#x2F;” +.htaccess<br>“Index of &#x2F;root”<br>“Index of &#x2F;cgi-bin”<br>“Index of &#x2F;logs”<br>“Index of &#x2F;config”<br>（包含引号）<br>[利用“inurl:”或 “allinurl:” 寻找有漏洞的网站或服务器]</p>
+<p>进行目录扫描</p>
+<p>利用“Index of ”语法去发现允许目录浏览的web网站，就象在本地的普通目录一样。下面是一些有趣的查询：<br>Index of &#x2F;admin<br>Index of &#x2F;passwd<br>Index of &#x2F;password<br>Index of &#x2F;mail</p>
+<p>“index of&#x2F;“inurl:lib</p>
+<p>“index of&#x2F;“+baidu.com</p>
+<p>“Index of &#x2F;” +passwd<br>“Index of &#x2F;” +password.txt<br>“Index of &#x2F;” +.htaccess<br>“Index of &#x2F;root”<br>“Index of &#x2F;cgi-bin”<br>“Index of &#x2F;logs”<br>“Index of &#x2F;config”<br>（包含引号）<br>[利用“inurl:”或 “allinurl:” 寻找有漏洞的网站或服务器]</p>
 <p>a、利用“allinurl:winnt&#x2F;system32&#x2F;” 查询：列出的服务器上本来应该受限制的诸如“system32” 等目录，如果你运气足够好，你会发现“system32” 目录里的“cmd.exe” 文件，并能执行他，接下来就是提升权限并攻克了。<br>b、 查询“allinurl:wwwboard&#x2F;passwd.txt”将列出所有有“WWWBoard Password vulnerability”漏洞的服务器，阅读更多请参见下面链接。http: &#x2F;&#x2F;<a href="https://link.zhihu.com/?target=http://www.securiteam.com/exploits/2BUQ4S0SAW.html">http://www.securiteam.com/exploits/2BUQ4S0SAW.html</a><br>c、查询“inurl:.bash_history” 将列出互联网上可以看见 “inurl:.bash_history” 文件的服务器。这是一个命令历史文件，这个文件包含了管理员执行的命令，有时会包含一些敏感信息比如管理员键入的密码。<br>d、查询“inurl:config.txt” 将看见网上暴露了“inurl:config.txt”文件的服务器，这个文件包含了经过哈希编码的管理员的密码和数据库存取的关键信息。<br>e、还有一些其他一些使用“inurl:”和“allinurl:”查询组合的例子。<br>inurl:admin filetype:txt<br>inurl:admin filetype:db<br>inurl:admin filetype:cfg<br>inurl:mysql filetype:cfg<br>inurl:passwd filetype:txt<br>inurl:”wwwroot&#x2F;*.”<br>inurl:adpassword.txt<br>inurl:webeditor.php<br>inurl:file_upload.php<br>inurl:gov filetype:xls “restricted”<br>index of ftp +.mdb allinurl:&#x2F;cgi-bin&#x2F; +mailto<br>（以上查询包含引号）<br>[利用“intitle:”和“allintitle:” 寻找有漏洞的服务器]<br>a、通过[allintitle: “index of &#x2F;root”] 查询列出有“root”目录存取权限的服务器的列表，这个目录经常包含敏感信息，通过这些信息服务器可能会被轻易攻克。<br>b、通过[allintitle: “index of &#x2F;admin”] 查询列出有“admin”目录列表权限的服务器的，绝大部分web 程序使用“admin”用户名去储存管理员权限。这个目录下的敏感信息可能会被利用来轻易地攻克服务器。</p>
 <h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><p>端口扫描:<code>-p- </code>全端口扫描。</p>
 <p>ip -&gt; 端口扫描 -&gt; 目录扫描 -&gt; 找到相关信息（robots.txt&#x2F;upgade.txt） -&gt; 使用msf进行漏洞 -&gt; 获得shell -&gt; find提权</p>
@@ -716,6 +726,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/01/04/%E6%8C%96src/" title="挖src">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">挖src</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
