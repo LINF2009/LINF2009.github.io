@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-29_17-22-13.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2023-12-29_17-30-55.png">
 <meta property="article:published_time" content="2023-12-29T03:12:59.000Z">
-<meta property="article:modified_time" content="2024-01-07T12:47:46.937Z">
+<meta property="article:modified_time" content="2024-01-08T13:17:54.260Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="网络渗透">
 <meta name="twitter:card" content="summary_large_image">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.6k 字
+          8k 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          64 分钟
+          67 分钟
         
       </span>
     
@@ -297,6 +297,14 @@
 <p>例如，在域名”example.com”中，”.com”是顶级域，”example”是二级域。域名通常与IP地址相关联，IP地址是用于在网络上唯一标识计算机或设备的数字地址。域名系统（Domain Name System，DNS）将域名转换为与之关联的IP地址，以便在浏览器中访问网站。</p>
 <p>域名的使用使人们能够通过简单、易记的名称来访问互联网上的网站，而无需记住复杂的IP地址。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgweb%E6%89%93%E7%82%B9.png" srcset="/img/loading.gif" lazyload alt="web打点"></p>
+<p>在有时候查询域名时会发现查询到了cdn（厂商将网站资源放入就近的服务器中，不是想找的IP），无法通过cdn进行信息收集。</p>
+<p>通过全球ping判断域名的IP地址，若在不同的地方有不同的IP则判断有cdn，否则没有cdn。</p>
+<p>绕过cdn的方法：</p>
+<p>1、通过查找没有使用cdn的对应域名的子域名，找到子域名的IP来确定原域名的IP地址。</p>
+<p>2、利用历史dns记录解析，可能在之前的域名没有使用cdn，并将域名的IP存入了dns中，查询记录就能查找到网站的真实IP。</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//dnsdb.io/zh-cn/</span><br><span class="hljs-symbol">https:</span><span class="hljs-comment">//x.threatbook.cn/</span><br><span class="hljs-symbol">http:</span><span class="hljs-comment">//toolbar.netcraft.com/site_report?url=</span><br><span class="hljs-symbol">http:</span><span class="hljs-comment">//viewdns.info/</span><br><span class="hljs-symbol">http:</span><span class="hljs-comment">//www.17ce.com/</span><br><span class="hljs-symbol">https:</span><span class="hljs-comment">//community.riskiq.com/</span><br><span class="hljs-symbol">http:</span><span class="hljs-comment">//www.crimeflare.com/cfssl.html</span><br></code></pre></td></tr></table></figure>
+
+<p>3、通过外国ping域名可能显示正确的IP。</p>
 <h2 id="一、资产信息收集"><a href="#一、资产信息收集" class="headerlink" title="一、资产信息收集"></a>一、资产信息收集</h2><h3 id="1-主域名资产收集"><a href="#1-主域名资产收集" class="headerlink" title="1.主域名资产收集"></a>1.主域名资产收集</h3><h4 id="1）ICP备案查询"><a href="#1）ICP备案查询" class="headerlink" title="1）ICP备案查询"></a>1）ICP备案查询</h4><table>
 <thead>
 <tr>
